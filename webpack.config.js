@@ -14,10 +14,10 @@ module.exports = {
   entry: './client/src/',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, './client/dist')
   },
   resolve: {
-    extensions: ['.jsx']
+    extensions: ['.jsx', '.js']
   },
   module: {
     rules: [
@@ -26,6 +26,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader', // what we want to actually do with the specified files?
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env']
+          }
         }
       } 
     ]
