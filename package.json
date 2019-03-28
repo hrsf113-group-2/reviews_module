@@ -1,17 +1,18 @@
 {
-  "name": "",
+  "name": "reviews_module",
   "version": "",
-  "description": "",
-  "author": "",
+  "description": "The reviews section of an Airbnb listing",
+  "author": "Harrison Wu",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
-  "dependencies": {
-  },
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.5.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   }
 }
