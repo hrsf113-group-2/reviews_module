@@ -1,5 +1,5 @@
-# review_module
-> Project description
+# reviews_module
+> The module handling 
 
 ## Related Projects
 
