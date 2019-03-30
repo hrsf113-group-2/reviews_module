@@ -10,7 +10,9 @@
   "scripts": {
     "build": "webpack --config ./webpack.config.js --watch",
     "server": "nodemon server/server.js",
-    "seed": "node db/db.js && node db/seed.js"
+    "seed": "node db/seed.js",
+    "db": "node db/db.js"
+
   },
   "dependencies": {
     "express": "^4.16.4",
