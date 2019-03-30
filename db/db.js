@@ -26,7 +26,7 @@ var Location = mongoose.model('location', locationSchema);
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log('dbs hello')
+    console.log('connected to the database!')
 })
 
 module.exports = Location;
