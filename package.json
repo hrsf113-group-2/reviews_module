@@ -8,9 +8,10 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --watch",
+    "start": "webpack --watch",
     "server": "nodemon ./server/server.js",
-    "seed": "node db/seed.js"
+    "seed": "node db/seed.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.4",
