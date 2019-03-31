@@ -1,5 +1,7 @@
 const express = require('express');
 
+const morgan = require('morgan'); // Add in Morgan middleware functionality.
+
 const path = require('path');
 
 const app = express();
@@ -21,5 +23,5 @@ app.get('/locations/:locationID/reviews', (req, res) => {
     });
 });
 
-
+// eslint-disable-next-line no-console
 app.listen(port, () => console.log(`Listening on port:${port}!`));
