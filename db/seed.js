@@ -1,12 +1,14 @@
 const faker = require('faker');
-const Location = require('./db.js')
+const Location = require('./db.js');
 
-for (var i = 1; i <= 10; i++) {
-  const samplePosts = 
-    { locationID: i,
-      reviews: [],
-    }
-  ;
+for (let i = 1; i <= 10; i += 1) {
+  const samplePosts = { locationID: i, reviews: [], };
+  // plug in bottom 4 lines for 5starRatings but be sure the ratings are actually different each time.
+  var randomFiveStarRating = faker.random.number({
+    min: 1,
+    max: 5,
+  })
+  
   // pick a random number between 1 and 20, then generate that many reviews
   var numberOfReviews = Math.floor(Math.random() * 20) + 1;
   for (var j = 0; j < numberOfReviews; j++) {
@@ -45,9 +47,7 @@ for (var i = 1; i <= 10; i++) {
   }
 
   const insertSampleBlogs = function() {
-    console.log('rebecca is evil')
     Location.create(samplePosts)
-      .then(() => db.disconnect());
   };
   insertSampleBlogs();
 }

@@ -8,11 +8,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --config ./webpack.config.js --watch",
-    "server": "nodemon server/server.js",
-    "seed": "node db/seed.js",
-    "db": "node db/db.js"
-
+    "build": "webpack --watch",
+    "server": "nodemon ./server/server.js",
+    "seed": "node db/seed.js"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -32,7 +30,6 @@
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",

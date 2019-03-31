@@ -1,8 +1,14 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/locations', {useNewUrlPaarser: true});
+mongoose.connect('mongodb://localhost/locations', {useNewUrlParser: true});
 var db = mongoose.connection;
-    
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log('connected to the database!');
+});
+
+
 var reviewSchema = new mongoose.Schema({
   ID: Number,
   name: String,
@@ -24,9 +30,5 @@ var locationSchema = new mongoose.Schema({
 
 var Location = mongoose.model('location', locationSchema);
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('connected to the database!')
-})
 
 module.exports = Location;
