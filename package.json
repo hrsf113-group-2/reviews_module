@@ -8,15 +8,17 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "build": "webpack --watch",
+    "start": "webpack --watch",
     "server": "nodemon ./server/server.js",
-    "seed": "node db/seed.js"
+    "seed": "node db/seed.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.20",
+    "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
