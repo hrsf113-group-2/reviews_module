@@ -13,7 +13,7 @@ for (let i = 1; i <= 100; i += 1) {
   const numberOfReviews = Math.floor(Math.random() * 20) + 1;
   for (let j = 0; j < numberOfReviews; j += 1) {
     const review = {
-      ID: faker.random.number(),
+      ID: j + 1,
       name: faker.name.findName(),
       date: faker.date.recent(),
       avatar: faker.image.avatar(),
@@ -24,7 +24,7 @@ for (let i = 1; i <= 100; i += 1) {
       'rating-location': createRandomFiveStarRating(),
       'rating-check-in': createRandomFiveStarRating(),
       'rating-value': createRandomFiveStarRating(),
-    }
+    };
     samplePosts.reviews.push(review);
   }
 

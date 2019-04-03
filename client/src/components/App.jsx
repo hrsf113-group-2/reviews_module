@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import Review from './review';
 class App extends React.Component {
   constructor() {
@@ -16,8 +15,8 @@ class App extends React.Component {
       .then(function(response) {
       return response.json();
     })
-    .then(function(jsonStr) {
-      component.setState({ reviews: jsonStr.reviews });
+    .then(function(json) {
+      component.setState({ reviews: json.reviews });
     });
     // The above will change the reviews state to be the reviews
     // of locationID 1.
