@@ -1,13 +1,17 @@
-import react from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
+class Review extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <div>{this.props.review.name}</div>
+      </div>
+    )
+  }
+}
 
 
-/*  Create a React Component for what a review looks like
-
-
-
-*/
-
-
-
-// we will not render here, but we will in our main component
+export default Review;

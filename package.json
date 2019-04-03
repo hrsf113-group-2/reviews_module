@@ -16,6 +16,7 @@
     "test": "npm run test-compile && npm run jest"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "dev": "^0.1.3",
     "enzyme": "^3.9.0",
     "express": "^4.16.4",
