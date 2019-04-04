@@ -8,10 +8,10 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-    allReviews: [],
-    currentReviews: [],
+      allReviews: [],
+      currentReviews: [],
     }
-
+    this.searchSubmit = this.searchSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -21,7 +21,18 @@ class App extends React.Component {
       component.setState(
         {allReviews: location.data.reviews,
          currentReviews: location.data.reviews,
-        })});
+        }
+      )
+    });
+  }
+
+  searchSubmit(text) { // NOTE: What's passed in may be an event instead?
+    // Create an empty selectedArray
+    // Check each review for text within it. (text is a string so we can use string method)
+    // If it is
+      // push it into selectedArray
+    // Now we have exited the loop
+    // set the currentReviews state to be the selectedArray.  
   }
 
   render() {
@@ -29,7 +40,7 @@ class App extends React.Component {
       <div>
         <Search />
         <Ratings />
-        {this.state.allReviews.map((review, index) => {
+        {this.state.currentReviews.map((review, index) => {
           return <Review key={index} review={review}/>
         })}
       </div>
