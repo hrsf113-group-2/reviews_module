@@ -1,34 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Review from './review';
+import axios from 'axios';
+import Review from './Review';
+import Search from './Search';
+import Ratings from './Ratings';
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      reviews: [],
+    allReviews: [],
     }
   }
 
   componentDidMount() {
-    const component = this; // this line is called before the fetch API call is made
-    fetch('http://localhost:3000/locations/1/reviews')
-      .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-      component.setState({ reviews: json.reviews });
-    });
-    // The above will change the reviews state to be the reviews
-    // of locationID 1.
-    // How do I make it so...
-      // 1. This fetch is called each time at locations/:locationID/reviews
-      // 2. That :/locationID is used in our fetch call.
+    const component = this; 
+    axios('http://localhost:3000/locations/1/reviews')
+    .then(location => component.setState({allReviews: location.data.reviews}));
   }
 
   render() {
     return (
       <div>
-        {this.state.reviews.map((review, index) => {
+        <Search />
+        <Ratings />
+        {this.state.allReviews.map((review, index) => {
           return <Review key={index} review={review}/>
         })}
       </div>
