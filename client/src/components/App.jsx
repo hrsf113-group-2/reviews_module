@@ -13,6 +13,7 @@ class App extends React.Component {
     }
     this.searchSubmit = this.searchSubmit.bind(this);
   }
+  
 
   componentDidMount() {
     const component = this; 
@@ -26,19 +27,33 @@ class App extends React.Component {
     });
   }
 
-  searchSubmit(text) { // NOTE: What's passed in may be an event instead?
+  searchSubmit(e) { // NOTE: What's passed in may be an event instead?
     // Create an empty selectedArray
     // Check each review for text within it. (text is a string so we can use string method)
     // If it is
       // push it into selectedArray
     // Now we have exited the loop
     // set the currentReviews state to be the selectedArray.  
+    e.preventDefault();
+    
+    const selectedArray = [];
+    for (let i = 0; i < this.state.allReviews.length; i++) {
+      let currentReviewObject = this.state.allReviews[i];
+      let currentReviewText = currentReviewObject.text;
+      if (currentReviewText.includes(e.target.value)) { // make sure e.target.value is the actual text
+        selectedArray.push(this.state.allReviews[i]); 
+      }
+    }
+    this.setState(() => {
+      return  {currentReviews: selectedArray}
+    })
   }
+
 
   render() {
     return (
       <div>
-        <Search />
+        <Search searchSubmit={this.searchSubmit}/>
         <Ratings />
         {this.state.currentReviews.map((review, index) => {
           return <Review key={index} review={review}/>
