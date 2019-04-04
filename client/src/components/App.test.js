@@ -3,7 +3,6 @@ import { shallow, mount, render } from 'enzyme';
 
 // Components
 import App from './App';
-import Review from './Review'
 
 describe('App Test Suite', () => {
   test('Should have a matching snapshot', () => {
@@ -13,7 +12,7 @@ describe('App Test Suite', () => {
   
   test('Reviews within state should initialize as an empty array', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.state('reviews')).toEqual([]);
+    expect(wrapper.state('allReviews')).toEqual([]);
   })
 
   test('Should render a div', () => {
