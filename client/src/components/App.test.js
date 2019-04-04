@@ -4,6 +4,14 @@ import { shallow, mount, render } from 'enzyme';
 // Components
 import App from './App';
 
+/* What tests can I write to help build out App?
+  1. State starts out empty.
+  2. State changes when component mounts - changes to a list of all reviews.
+  3. The App does indeed render.
+  4. 
+
+*/
+
 describe('App Test Suite', () => {
   test('Should have a matching snapshot', () => {
     const component = shallow(<App />);

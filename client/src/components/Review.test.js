@@ -3,6 +3,13 @@ import { shallow, mount, render } from 'enzyme';
 
 import Review from './Review';
 
+/* What tests can I write to help build out my review module
+  1.
+
+
+
+*/
+
 describe('Review Test Suite', () => {
   test('Should have a matching snapshot', () => {
     const component = shallow(<Review />);
@@ -32,4 +39,7 @@ describe('Review Test Suite', () => {
     const component = shallow(<Review review={mockReview}/>);
     expect(component.props()).toBe(mockReview);
   })
+
+  test('')
+
 })
