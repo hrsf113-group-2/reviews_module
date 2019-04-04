@@ -9,6 +9,7 @@ class App extends React.Component {
     super();
     this.state = {
     allReviews: [],
+    currentReviews: [],
     }
 
   }
@@ -16,7 +17,11 @@ class App extends React.Component {
   componentDidMount() {
     const component = this; 
     axios('http://localhost:3000/locations/1/reviews')
-    .then(location => component.setState({allReviews: location.data.reviews}));
+    .then(location => {
+      component.setState(
+        {allReviews: location.data.reviews,
+         currentReviews: location.data.reviews,
+        })});
   }
 
   render() {
