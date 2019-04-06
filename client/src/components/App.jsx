@@ -14,6 +14,7 @@ class App extends React.Component {
     }
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
+    this.calculateAverageRating = this.calculateAverageRating.bind(this);
   }
   
   componentDidMount() {
@@ -49,12 +50,22 @@ class App extends React.Component {
     });
   }
 
+  calculateAverageRating(ratingCategory) {
+    let combinedRatingTotal = 0;
+    let numberOfReviews = this.state.allReviews.length;
+    for (let i = 0; i < numberOfReviews; i += 1) {
+      combinedRatingTotal += this.state.allReviews[i][ratingCategory];
+    }
+    const averageRating = combinedRatingTotal / numberOfReviews;
+    const averageRatingToClosestHalfRating = Math.ceil(averageRating*2)/2
+    return averageRatingToClosestHalfRating;
+  }
 
   render() {
     return (
       <div>
         <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-        <Ratings />
+        <Ratings calculateAverageRating={this.calculateAverageRating}/>
         {this.state.currentReviews.map((review, index) => {
           return <Review key={index} review={review}/>
         })};
