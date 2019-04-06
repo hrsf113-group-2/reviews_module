@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Review from './Review';
+import Review from './review';
 import Search from './Search';
 import Ratings from './Ratings';
 class App extends React.Component {
@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
     allReviews: [],
     }
+
   }
 
   componentDidMount() {

@@ -3,7 +3,14 @@ import { shallow, mount, render } from 'enzyme';
 
 // Components
 import App from './App';
-import Review from './Review'
+
+/* What tests can I write to help build out App?
+  1. State starts out empty.
+  2. State changes when component mounts - changes to a list of all reviews.
+  3. The App does indeed render.
+  4. 
+
+*/
 
 describe('App Test Suite', () => {
   test('Should have a matching snapshot', () => {
@@ -13,7 +20,7 @@ describe('App Test Suite', () => {
   
   test('Reviews within state should initialize as an empty array', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.state('reviews')).toEqual([]);
+    expect(wrapper.state('allReviews')).toEqual([]);
   })
 
   test('Should render a div', () => {
