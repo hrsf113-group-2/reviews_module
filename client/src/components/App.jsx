@@ -46,7 +46,7 @@ class App extends React.Component {
       }
     };
     this.setState(() => {
-      return  {currentReviews: selectedArray}
+      return  {currentReviews: selectedArray};
     });
   }
 
