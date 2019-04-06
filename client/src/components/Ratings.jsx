@@ -22,14 +22,24 @@ class Ratings extends React.Component {
       halfStar += '★'
     };
 
-    return fullStars + halfStar;
+    // stars now have their own individual classes, find out how to append the half star to the end of the full star.
+    return (
+      <div>
+        <div className="full-star">
+          {fullStars}
+        </div>
+        <div className="half-star">
+          {halfStar}
+        </div>
+      </div>
+    )
   }
 
 
   render() {
     return (
       <div>
-        <div>TEST OF FULL STAR RENDERING {this.createVisualStars(this.props.calculateAverageRating('rating-accuracy'))}</div>
+        TEST OF FULL STAR RENDERING {this.createVisualStars(this.props.calculateAverageRating('rating-accuracy'))}
         <div>Accuracy {this.props.calculateAverageRating('rating-accuracy')}</div>
         <div>Communication {this.props.calculateAverageRating('rating-communication')}</div>
         <div>Cleanliness {this.props.calculateAverageRating('rating-cleanliness')}</div>
