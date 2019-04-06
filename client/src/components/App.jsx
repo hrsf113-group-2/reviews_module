@@ -11,10 +11,12 @@ class App extends React.Component {
       allReviews: [],
       currentReviews: [],
       currentSearchTerm: null,
+      allAverageRatings: {},
     }
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
+    this.storeAllAverageRatings = this.storeAllAverageRatings.bind(this);
   }
   
   componentDidMount() {
@@ -26,7 +28,8 @@ class App extends React.Component {
          currentReviews: location.data.reviews,
         }
       )
-    });
+    })
+    .then(() => component.storeAllAverageRatings());
   };
 
   searchBarTextChange(e) {
@@ -48,7 +51,7 @@ class App extends React.Component {
     };
 
     this.setState(() => {
-      return  {currentReviews: selectedArray};
+      return {currentReviews: selectedArray}
     });
   }
 
@@ -59,17 +62,36 @@ class App extends React.Component {
       combinedRatingTotal += this.state.allReviews[i][ratingCategory];
     }
     const averageRating = combinedRatingTotal / numberOfReviews;
-    const averageRatingToClosestHalfRating = Math.ceil(averageRating*2)/2
-    return averageRatingToClosestHalfRating;
+    const nearestHalfRating = Math.ceil(averageRating*2)/2
+    return nearestHalfRating;
   }
 
+  storeAllAverageRatings() {
+    const accuracy = this.calculateAverageRating('rating-accuracy');
+    const communication = this.calculateAverageRating('rating-communication');
+    const cleanliness = this.calculateAverageRating('rating-cleanliness');
+    const location = this.calculateAverageRating('rating-location');
+    const checkin = this.calculateAverageRating('rating-check-in');
+    const value = this.calculateAverageRating('rating-value');
+    const allAverageRatings = {
+      accuracy: accuracy,
+      communication: communication,
+      cleanliness: cleanliness,
+      location: location,
+      checkin: checkin,
+      value: value,
+    }
+    this.setState({
+      allAverageRatings: allAverageRatings,
+    })
+  }
+  
   render() {
-
     if (this.state.currentReviews.length > 0) {
       return (
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <Ratings />
+          <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
       )
@@ -78,7 +100,7 @@ class App extends React.Component {
       return(
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <Ratings />
+          <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <p>None of our guests have mentioned "{currentTerm}"</p>
           <div>Back to all reviews</div>
         </div>
