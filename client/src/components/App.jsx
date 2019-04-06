@@ -11,7 +11,7 @@ class App extends React.Component {
       allReviews: [],
       currentReviews: [],
       currentSearchTerm: null,
-      allAverageRatings: null,
+      allAverageRatings: {},
     }
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
@@ -29,7 +29,7 @@ class App extends React.Component {
         }
       )
     })
-    .then(() => this.storeAllAverageRatings())
+    .then(() => component.storeAllAverageRatings());
   };
 
   searchBarTextChange(e) {
@@ -87,12 +87,11 @@ class App extends React.Component {
   }
   
   render() {
-
     if (this.state.currentReviews.length > 0) {
       return (
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <Ratings />
+          <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
       )
@@ -101,7 +100,7 @@ class App extends React.Component {
       return(
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <Ratings />
+          <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <p>None of our guests have mentioned "{currentTerm}"</p>
           <div>Back to all reviews</div>
         </div>
