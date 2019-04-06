@@ -18,7 +18,7 @@ class App extends React.Component {
   
   componentDidMount() {
     const component = this; 
-    axios('http://localhost:3000/locations/1/reviews')
+    axios('http://localhost:3000/locations/2/reviews')
     .then(location => {
       component.setState(
         {allReviews: location.data.reviews,
@@ -60,15 +60,17 @@ class App extends React.Component {
           <Ratings />
           {this.state.currentReviews.map((review, index) => {
             return <Review key={index} review={review}/>
-          })};
+          })}
         </div>
       )
     } else {
+      const currentTerm = this.state.currentSearchTerm;
       return(
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
           <Ratings />
-          <p>None of our guests have mentioned "{this.state.currentSearchTerm}"</p>
+          <p>None of our guests have mentioned "{currentTerm}"</p>
+          <div>Back to all reviews</div>
         </div>
       )
     }
