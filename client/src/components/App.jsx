@@ -14,6 +14,7 @@ class App extends React.Component {
     }
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
+    this.calculateAverageRating = this.calculateAverageRating.bind(this);
   }
   
   componentDidMount() {
@@ -49,7 +50,7 @@ class App extends React.Component {
     });
   }
 
-  calulateAverageRating(ratingCategory) {
+  calculateAverageRating(ratingCategory) {
     /* Explanation: given the rating-______,
        I want to check every single review for the rating at that key.
        Add those all together. Then divide them by the number of reviews there are/we've checked. 
@@ -69,7 +70,7 @@ class App extends React.Component {
     return (
       <div>
         <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-        <Ratings />
+        <Ratings calculateAverageRating={this.calculateAverageRating}/>
         {this.state.currentReviews.map((review, index) => {
           return <Review key={index} review={review}/>
         })};
