@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .full-star {
   position: relative;
   display: inline-block;
@@ -33,3 +34,14 @@
 .stars-80:after { width: 80%; }
 .stars-90:after { width: 90%; }
 .stars-100:after { width: 100%;}
+=======
+
+.all-ratings:nth-child(2n) {
+  color:blue;
+}
+
+.all-ratings:nth-child(2n) {
+  color: red;
+}
+
+>>>>>>> Modify styling of Ratings
