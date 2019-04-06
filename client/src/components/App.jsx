@@ -11,10 +11,12 @@ class App extends React.Component {
       allReviews: [],
       currentReviews: [],
       currentSearchTerm: null,
+      allAverageRatings: null,
     }
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
+    this.storeAllAverageRatings = this.storeAllAverageRatings.bind(this);
   }
   
   componentDidMount() {
@@ -26,7 +28,8 @@ class App extends React.Component {
          currentReviews: location.data.reviews,
         }
       )
-    });
+    })
+    .then(() => this.storeAllAverageRatings())
   };
 
   searchBarTextChange(e) {
@@ -48,7 +51,7 @@ class App extends React.Component {
     };
 
     this.setState(() => {
-      return  {currentReviews: selectedArray};
+      return {currentReviews: selectedArray}
     });
   }
 
@@ -63,7 +66,26 @@ class App extends React.Component {
     return nearestHalfRating;
   }
 
-
+  storeAllAverageRatings() {
+    const accuracy = this.calculateAverageRating('rating-accuracy');
+    const communication = this.calculateAverageRating('rating-communication');
+    const cleanliness = this.calculateAverageRating('rating-cleanliness');
+    const location = this.calculateAverageRating('rating-location');
+    const checkin = this.calculateAverageRating('rating-check-in');
+    const value = this.calculateAverageRating('rating-value');
+    const allAverageRatings = {
+      accuracy: accuracy,
+      communication: communication,
+      cleanliness: cleanliness,
+      location: location,
+      checkin: checkin,
+      value: value,
+    }
+    this.setState({
+      allAverageRatings: allAverageRatings,
+    })
+  }
+  
   render() {
 
     if (this.state.currentReviews.length > 0) {
