@@ -1,7 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/src/components/App.jsx',
+  mode: 'production',
+  entry: './client/src/components/index.jsx',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, './client/dist'),
