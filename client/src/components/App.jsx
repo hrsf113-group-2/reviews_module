@@ -1,36 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import MainRating from './MainRating.jsx';
+import styles from './App.css';
 
-
-=======
-=======
->>>>>>> d36cb0da25a5752e032c9a05bcba7abb88b61434
-import Search from './Search';
-import Ratings from './Ratings';
-import ReviewsList from './ReviewsList';
-import MainRating from './MainRating';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Pass down numberOfReviews and allAverageRatings to MainRating.js
-=======
-
->>>>>>> Add line between import and class definition
-=======
-
->>>>>>> d36cb0da25a5752e032c9a05bcba7abb88b61434
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       allReviews: [],
       currentReviews: [],
-      currentSearchTerm: null,
+      currentSearchTerm: '',
       allAverageRatings: {},
     };
     this.searchSubmit = this.searchSubmit.bind(this);
@@ -109,13 +91,31 @@ class App extends React.Component {
   render() {
     if (this.state.currentReviews.length > 0) {
       return (
+<<<<<<< HEAD
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
           <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
+=======
+        <div className="main-app">
+          <Search className="search" searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+>>>>>>> Add classNames to which CSS will be applied
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
       )
+<<<<<<< HEAD
+=======
+    } else {
+      const currentTerm = this.state.currentSearchTerm;
+      return(
+        <div className="main-app">
+          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+          <Ratings allAverageRatings={this.state.allAverageRatings}/>
+          <p>None of our guests have mentioned "{currentTerm}"</p>
+          <div>Back to all reviews</div>
+        </div>
+      )
+>>>>>>> Add classNames to which CSS will be applied
     }
     const currentTerm = this.state.currentSearchTerm;
     return (
