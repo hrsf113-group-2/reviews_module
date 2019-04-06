@@ -4,19 +4,12 @@ class Ratings extends React.Component {
     super(props);
   }
 
-  /* 
-  I have the number of stars/half stars I want. So create a function that takes that number, and turns that into ★★★★★
-  createVisualStars should be a function held in App component b/c we need to use it for MainRatings as well.
-  It's kind of annoying to be honest. I could just create the same function twice (once here and once in MainRating).
-
-  */
-
   createVisualStars(ratingValue) {
     // CURRENT FUNCTIONALITY: 
     // WILL RENDER CORRECT NUMBER OF FULL STARS
     // WILL RENDER A FULL STAR IF THERE'S A HALF STAR
     // NEED TO ADD CLASSES TO THE FULL STARS AND THE HALF STARS SO I CAN DRAW THEM SEPERATELY
-    
+
     const numberOfFullStars = Math.floor(ratingValue);
 
     let fullStars = '';
@@ -28,7 +21,6 @@ class Ratings extends React.Component {
     if ((ratingValue % 1) !== 0) {
       halfStar += '★'
     };
-
 
     return fullStars + halfStar;
   }
