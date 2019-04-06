@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Review from './review';
 import Search from './Search';
@@ -87,7 +86,5 @@ class App extends React.Component {
     }
   }
 }
-
-ReactDOM.render(<App />, document.getElementById('app'));
 
 export default App;
