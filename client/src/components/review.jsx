@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import ReviewText from './ReviewText';
+=======
+import styles from './Review.css';
+>>>>>>> Configure webpack to allow for css-styles, change review text to blue as a confirmation of correct functionality
 class Review extends React.Component {
   render() {
     const months = [
