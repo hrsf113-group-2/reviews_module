@@ -3,6 +3,7 @@ import axios from 'axios';
 import Review from './review';
 import Search from './Search';
 import Ratings from './Ratings';
+import ReviewsList from './ReviewsList';
 class App extends React.Component {
   constructor() {
     super();
@@ -47,7 +48,7 @@ class App extends React.Component {
     };
 
     this.setState(() => {
-      return  {currentReviews: selectedArray}
+      return  {currentReviews: selectedArray};
     });
   }
 
@@ -63,14 +64,13 @@ class App extends React.Component {
   }
 
   render() {
+
     if (this.state.currentReviews.length > 0) {
       return (
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
           <Ratings />
-          {this.state.currentReviews.map((review, index) => {
-            return <Review key={index} review={review}/>
-          })}
+          <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
       )
     } else {
