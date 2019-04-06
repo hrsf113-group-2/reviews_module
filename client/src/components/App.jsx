@@ -36,6 +36,7 @@ class App extends React.Component {
 
   searchSubmit(e) { 
     e.preventDefault();
+    
     const selectedArray = [];
     for (let i = 0; i < this.state.allReviews.length; i++) {
       let currentReviewObject = this.state.allReviews[i];
@@ -44,6 +45,7 @@ class App extends React.Component {
         selectedArray.push(this.state.allReviews[i]); 
       }
     };
+
     this.setState(() => {
       return  {currentReviews: selectedArray}
     });
@@ -51,15 +53,27 @@ class App extends React.Component {
 
 
   render() {
-    return (
-      <div>
-        <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-        <Ratings />
-        {this.state.currentReviews.map((review, index) => {
-          return <Review key={index} review={review}/>
-        })};
-      </div>
-    )
+    if (this.state.currentReviews.length > 0) {
+      return (
+        <div>
+          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+          <Ratings />
+          {this.state.currentReviews.map((review, index) => {
+            return <Review key={index} review={review}/>
+          })};
+        </div>
+      )
+    } else {
+      return(
+        <div>
+          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+          <Ratings />
+          <p>None of our guests have mentioned "{this.state.currentSearchTerm}"</p>
+        </div>
+      )
+    }
+
+
   }
 }
 
