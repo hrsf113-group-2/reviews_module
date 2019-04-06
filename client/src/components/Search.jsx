@@ -5,11 +5,13 @@ class Search extends React.Component {
     super(props);
   }
 
+
+
   render() {
     return (
       <form>
-        <input type="text"></input>
-        <button></button>
+        <input onChange={this.props.searchBarTextChange} type="search"></input>
+        <input onClick={this.props.searchSubmit} type="submit"></input>
       </form>
     )
   }
