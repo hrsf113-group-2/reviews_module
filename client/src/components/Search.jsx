@@ -11,7 +11,7 @@ class Search extends React.Component {
     return (
       <form>
         <input onChange={this.props.searchBarTextChange} type="search"></input>
-        <input onClick={this.props.searchSubmit} type="submit"></input>
+        <input onClick={this.props.searchSubmit} type="submit" value="Search Reviews"></input>
       </form>
     )
   }
