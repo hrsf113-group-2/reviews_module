@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styles from './Search.css'
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ class Search extends React.Component {
   render() {
     return (
       <form>
-        <input onChange={this.props.searchBarTextChange} type="search"></input>
+        <input className="input-bar" onChange={this.props.searchBarTextChange} type="search"></input>
         <input onClick={this.props.searchSubmit} type="submit" value="Search Reviews"></input>
       </form>
     )
