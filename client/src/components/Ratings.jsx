@@ -1,8 +1,4 @@
 import React from 'react';
-
-//In the render here, we will be passed in the ratings from
-// the App state. From there, we want to get the avg rating.
-
 class Ratings extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +7,12 @@ class Ratings extends React.Component {
   render() {
     return (
       <div>
-        Ratings will be here!
+        <div>Accuracy {this.props.calculateAverageRating('rating-accuracy')}</div>
+        <div>Communication {this.props.calculateAverageRating('rating-communication')}</div>
+        <div>Cleanliness {this.props.calculateAverageRating('rating-cleanliness')}</div>
+        <div>Location {this.props.calculateAverageRating('rating-location')}</div>
+        <div>Check-In {this.props.calculateAverageRating('rating-check-in')}</div>
+        <div>Value {this.props.calculateAverageRating('rating-value')}</div>
       </div>
     )
   }

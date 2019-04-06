@@ -14,6 +14,7 @@ class App extends React.Component {
     }
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
+    this.calculateAverageRating = this.calculateAverageRating.bind(this);
   }
   
   componentDidMount() {
@@ -51,6 +52,16 @@ class App extends React.Component {
     });
   }
 
+  calculateAverageRating(ratingCategory) {
+    let combinedRatingTotal = 0;
+    let numberOfReviews = this.state.allReviews.length;
+    for (let i = 0; i < numberOfReviews; i += 1) {
+      combinedRatingTotal += this.state.allReviews[i][ratingCategory];
+    }
+    const averageRating = combinedRatingTotal / numberOfReviews;
+    const averageRatingToClosestHalfRating = Math.ceil(averageRating*2)/2
+    return averageRatingToClosestHalfRating;
+  }
 
   render() {
     if (this.state.currentReviews.length > 0) {
@@ -74,8 +85,6 @@ class App extends React.Component {
         </div>
       )
     }
-
-
   }
 }
 
