@@ -4,6 +4,7 @@ import axios from 'axios';
 import Review from './review';
 import Search from './Search';
 import Ratings from './Ratings';
+import ReviewsList from './ReviewsList';
 class App extends React.Component {
   constructor() {
     super();
@@ -55,6 +56,7 @@ class App extends React.Component {
       <div>
         <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
         <Ratings />
+        <ReviewsList />
         {this.state.currentReviews.map((review, index) => {
           return <Review key={index} review={review}/>
         })};
