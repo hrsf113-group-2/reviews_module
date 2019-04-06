@@ -51,11 +51,6 @@ class App extends React.Component {
   }
 
   calculateAverageRating(ratingCategory) {
-    /* Explanation: given the rating-______,
-       I want to check every single review for the rating at that key.
-       Add those all together. Then divide them by the number of reviews there are/we've checked. 
-       That will be our average rating. Let that render in ratings component.
-    */
     let combinedRatingTotal = 0;
     let numberOfReviews = this.state.allReviews.length;
     for (let i = 0; i < numberOfReviews; i += 1) {
@@ -64,8 +59,6 @@ class App extends React.Component {
     const averageRating = combinedRatingTotal / numberOfReviews;
     const averageRatingToClosestHalfRating = Math.ceil(averageRating*2)/2
     return averageRatingToClosestHalfRating;
-      // divide the combinedRatingTotal by our numberOfReviews -> this is the length
-      // that is the average rating. return it
   }
 
   render() {
