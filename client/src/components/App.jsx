@@ -16,7 +16,6 @@ class App extends React.Component {
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
   }
   
-
   componentDidMount() {
     const component = this; 
     axios('http://localhost:3000/locations/1/reviews')
@@ -27,13 +26,12 @@ class App extends React.Component {
         }
       )
     });
-  }
+  };
 
   searchBarTextChange(e) {
     this.setState({
       currentSearchTerm: e.target.value
-    })
-
+    });
   }
 
   searchSubmit(e) { 
@@ -45,10 +43,10 @@ class App extends React.Component {
       if (currentReviewText.includes(this.state.currentSearchTerm)) { // make sure e.target.value is the actual text
         selectedArray.push(this.state.allReviews[i]); 
       }
-    }
+    };
     this.setState(() => {
       return  {currentReviews: selectedArray}
-    })
+    });
   }
 
 
@@ -59,7 +57,7 @@ class App extends React.Component {
         <Ratings />
         {this.state.currentReviews.map((review, index) => {
           return <Review key={index} review={review}/>
-        })}
+        })};
       </div>
     )
   }
