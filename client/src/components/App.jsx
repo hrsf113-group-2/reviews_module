@@ -61,7 +61,9 @@ class App extends React.Component {
     for (let i = 0; i < numberOfReviews; i += 1) {
         combinedRatingTotal += this.state.allReviews[i][ratingCategory];
       }
-    return (combinedRatingTotal / numberOfReviews);
+    const averageRating = combinedRatingTotal / numberOfReviews;
+    const averageRatingToClosestHalfRating = Math.ceil(averageRating*2)/2
+    return averageRatingToClosestHalfRating;
       // divide the combinedRatingTotal by our numberOfReviews -> this is the length
       // that is the average rating. return it
   }
