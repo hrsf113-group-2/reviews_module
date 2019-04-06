@@ -7,7 +7,10 @@ class Ratings extends React.Component {
   constructor(props) {
     super(props);
   }
+/* 
+What does our ratings component need to do?
 
+*/
   render() {
     return (
       <div>
