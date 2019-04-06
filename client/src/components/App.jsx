@@ -3,7 +3,11 @@ import axios from 'axios';
 import Review from './review';
 import Search from './Search';
 import Ratings from './Ratings';
+<<<<<<< HEAD
 import ReviewsList from './ReviewsList';
+=======
+import MainRating from './MainRating';
+>>>>>>> Create MainRating component and place it in our App
 class App extends React.Component {
   constructor() {
     super();
@@ -91,6 +95,7 @@ class App extends React.Component {
       return (
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+          <MainRating />
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
