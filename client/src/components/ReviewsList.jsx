@@ -1,4 +1,5 @@
 import React from 'react';
+import Review from './review';
 
 class ReviewsList extends React.Component {
   constructor(props) {
@@ -8,7 +9,9 @@ class ReviewsList extends React.Component {
   render() {
     return (
       <div>
-        Reviews List Component Now Rendering!
+        {this.props.currentReviews.map((review, index) => {
+          return <Review key={index} review={review}/>
+        })};
       </div>
     )
   }
