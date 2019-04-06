@@ -12,26 +12,25 @@ class Ratings extends React.Component {
   */
 
   createVisualStars(ratingValue) {
-    /*
-     Given a rating value,
-     Render the appropriate number of stars/halfstars
-
-     Question: How do we render half stars?
-       Solve this question first, b/c otherwise I can't render full stars appropriately.
-       I think CSS can create a half star, so we should render full stars based off their floor. 
-       Example: If our rating is 3.5, render 3 full stars (className=full-star).
-       If there's a .5, render half a star (className=half-star)
-
-       */
-
-    //The below will only render the full stars.
-    const numberOfFullStars = Math.floor(ratingValue);
-    let fullStars = '';
+    // CURRENT FUNCTIONALITY: 
+    // WILL RENDER CORRECT NUMBER OF FULL STARS
+    // WILL RENDER A FULL STAR IF THERE'S A HALF STAR
+    // NEED TO ADD CLASSES TO THE FULL STARS AND THE HALF STARS SO I CAN DRAW THEM SEPERATELY
     
+    const numberOfFullStars = Math.floor(ratingValue);
+
+    let fullStars = '';
     for (let i = 0; i < numberOfFullStars; i += 1) {
       fullStars += '★';
-    }
-    return fullStars;
+    };
+
+    let halfStar = '';
+    if ((ratingValue % 1) !== 0) {
+      halfStar += '★'
+    };
+
+
+    return fullStars + halfStar;
   }
 
 
