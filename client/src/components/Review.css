@@ -1,4 +1,6 @@
+
 .full-review {
+  display: flex;
   color: black;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
@@ -10,4 +12,31 @@
   border-radius: 50%;
   height: 48px;
   width: 48px;
+  order:1;
+  flex: 2;
+
+  border: solid black 1px;
+}
+
+.name {
+  font-size: 16px;
+  left: 100px;
+  order:2;
+  flex: 2;
+
+  border: solid black 1px;
+}
+
+.date {
+  font-size: 14px;
+  line-height: 18px;
+  order:3;
+  flex: 1;
+
+  border: solid black 1px;
+}
+.review-text {
+  order: 4;
+  border: solid black 1px;
+  flex-flow: column wrap;
 }
