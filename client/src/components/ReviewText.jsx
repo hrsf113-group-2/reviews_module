@@ -4,7 +4,9 @@ import React from 'react';
 If the number of characters in this.props.reviewText < 250
   Just render the review
 If not
-  Then for now render 'less than 250 characters'
+  Then I should only render a part of the string (up to those 250 characters) as well have a clickable
+  text called "Read more"
+
 */
 
 class ReviewText extends React.Component {
@@ -12,23 +14,34 @@ class ReviewText extends React.Component {
     super(props);
 
     this.state = {
-
+      fullRender: false,
     }
+    this.readFullReview = this.readFullReview.bind(this);
+  }
+
+
+
+  readFullReview() {
+    this.setState({
+      fullRender: true,
+    })
   }
 
   render() {
     const currentReviewText = this.props.reviewText;
-    if (currentReviewText.length < 250) {
+    if (this.state.fullRender) {
+      // if this is true, just render full text
       return (
         <p>
-          {this.props.reviewText}
+          {currentReviewText}
         </p>
       )
     } else {
       return (
-        <p>
-          This review has over 250 characters.
-        </p>
+      <div>
+        <p>{currentReviewText.substring(0,250)}...</p>
+        <span onClick={this.readFullReview}>Read more</span>
+      </div>
       )
     }
   }
