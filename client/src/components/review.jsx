@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewText from './ReviewText';
 class Review extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ class Review extends React.Component {
         <img src={this.props.review.avatar}></img>
         <div>{this.props.review.name}</div>
         <div>{currentMonthName} {currentYear}</div>
-        <p>{this.props.review.text}</p>
+        <ReviewText reviewText={this.props.review.text}/>
       </div>
     )
   }
