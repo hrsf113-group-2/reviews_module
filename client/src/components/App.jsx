@@ -1,11 +1,18 @@
 import React from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
 import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import MainRating from './MainRating.jsx';
 
 
+=======
+import Search from './Search';
+import Ratings from './Ratings';
+import ReviewsList from './ReviewsList';
+import MainRating from './MainRating';
+>>>>>>> Pass down numberOfReviews and allAverageRatings to MainRating.js
 class App extends React.Component {
   constructor() {
     super();
@@ -93,7 +100,7 @@ class App extends React.Component {
       return (
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <MainRating />
+          <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
