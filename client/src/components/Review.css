@@ -1,11 +1,12 @@
 
 .full-review {
-  /* display: flex; */
+  display: flex;
   color: black;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
   border-bottom: solid silver 1px;
   width: 594px;
+
 }
 
 .avatar {
@@ -23,7 +24,7 @@
   height: 22px;
   width: 584px;
   font-weight: bold;
-  
+  flex: 1;
   
   border: solid black 1px;
 }
@@ -34,9 +35,11 @@
   display: block;
   height: 20px;
   width: 584px;
-
+  flex: 1;
+  
   border: solid black 1px;
 }
 .review-text {
   border: solid black 1px;
+  flex: 3;
 }
