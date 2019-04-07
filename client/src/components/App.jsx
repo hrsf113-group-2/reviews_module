@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import Review from './review';
 import Search from './Search';
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
@@ -92,7 +91,7 @@ class App extends React.Component {
       return (
         <div>
           <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <MainRating />
+          <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
