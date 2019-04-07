@@ -3,11 +3,8 @@ import axios from 'axios';
 import Review from './review';
 import Search from './Search';
 import Ratings from './Ratings';
-<<<<<<< HEAD
 import ReviewsList from './ReviewsList';
-=======
 import MainRating from './MainRating';
->>>>>>> Create MainRating component and place it in our App
 class App extends React.Component {
   constructor() {
     super();
