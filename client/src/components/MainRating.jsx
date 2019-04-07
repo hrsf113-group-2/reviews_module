@@ -32,8 +32,8 @@ class MainRating extends React.Component {
   render() {
     return (
       <div>
-        <span>{this.props.numberOfReviews} Reviews</span>
-        <span>Total Average Rating: {this.calculateTotalAverage(this.props.allAverageRatings)}</span>
+        <div>{this.props.numberOfReviews} Reviews</div>
+        <div>Total Average Rating: {this.calculateTotalAverage(this.props.allAverageRatings)}</div>
       </div>
     )
   }
