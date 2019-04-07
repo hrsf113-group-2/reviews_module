@@ -37,15 +37,15 @@ class Ratings extends React.Component {
 
 
   render() {
+    const { allAverageRatings } = this.props;
     return (
       <div>
-        TEST OF FULL STAR RENDERING {this.createVisualStars(this.props.allAverageRatings.accuracy)}
-        <div>Accuracy {this.props.allAverageRatings.accuracy}</div>
-        <div>Communication {this.props.allAverageRatings.communication}</div>
-        <div>Cleanliness {this.props.allAverageRatings.cleanliness}</div>
-        <div>Location {this.props.allAverageRatings.location}</div>
-        <div>Check-In {this.props.allAverageRatings.checkin}</div>
-        <div>Value {this.props.allAverageRatings.value}</div>
+        <div>Accuracy {this.createVisualStars(allAverageRatings.accuracy)}</div>
+        <div>Communication {this.createVisualStars(allAverageRatings.communication)}</div>
+        <div>Cleanliness {this.createVisualStars(allAverageRatings.cleanliness)}</div>
+        <div>Location {this.createVisualStars(allAverageRatings.location)}</div>
+        <div>Check-In {this.createVisualStars(allAverageRatings.checkin)}</div>
+        <div>Value {this.createVisualStars(allAverageRatings.value)}</div>
       </div>
     )
   }
