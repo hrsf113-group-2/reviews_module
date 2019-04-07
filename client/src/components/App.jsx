@@ -5,6 +5,7 @@ import Ratings from './Ratings.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import MainRating from './MainRating.jsx';
 
+
 class App extends React.Component {
   constructor() {
     super();
