@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './MainRating.css';
 class MainRating extends React.Component {
   constructor(props) {
     super(props);
@@ -18,14 +19,24 @@ class MainRating extends React.Component {
     return nearestHalfRating;
   }
 
-  render() {
+  createVisualStars(ratingValue) {
+    const percentageOfStars = ratingValue * 20;
+    const classNamePercentage = 'stars-' + percentageOfStars;
+    const classNames = 'full-star ' + classNamePercentage;
     return (
-      <div>
-        <div>{this.props.numberOfReviews} Reviews</div>
-        <div>Total Average Rating: {this.calculateTotalAverage(this.props.allAverageRatings)}</div>
-      </div>
+        <div 
+        className={classNames}>
+          ★★★★★
+        </div>
     )
   }
-};
+
+  render() {
+    const totalAverage = this.calculateTotalAverage(this.props.allAverageRatings);
+    return (
+      <div className="review-count">{this.props.numberOfReviews} Reviews {this.createVisualStars(totalAverage)}</div>
+    );
+  }
+}
 
 export default MainRating;

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewText from './ReviewText';
+import styles from './Review.css';
 class Review extends React.Component {
   render() {
     const months = [
@@ -14,10 +15,12 @@ class Review extends React.Component {
     const currentMonthName = months[currentMonthNum];
 
     return (
-      <div>
-        <img src={this.props.review.avatar}></img>
-        <div>{this.props.review.name}</div>
-        <div>{currentMonthName} {currentYear}</div>
+      <div className="full-review">
+        <img className="avatar" src={this.props.review.avatar}></img>
+        <div className="user-info">
+          <div className="name">{this.props.review.name.split(' ')[0]}</div>
+          <div className="date">{currentMonthName} {currentYear}</div>
+        </div>
         <ReviewText reviewText={this.props.review.text}/>
       </div>
     );

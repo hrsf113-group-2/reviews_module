@@ -1,0 +1,9 @@
+
+.read-more {
+  color: #008489;  
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
