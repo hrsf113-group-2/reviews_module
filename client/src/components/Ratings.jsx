@@ -5,26 +5,29 @@ class Ratings extends React.Component {
     super(props);
   }
 
+// How the second class works
+/*
+10 = .5
+20 = 1
+30 = 1.5
+40 = 2
+50 = 2.5
+60 = 3
+70 = 3.5
+80 = 4
+90 = 4.5
+100 = 5
+*/
   createVisualStars(ratingValue) {
-    const numberOfFullStars = Math.floor(ratingValue);
-
-    let fullStars = '';
-    for (let i = 0; i < numberOfFullStars; i += 1) {
-      fullStars += '★';
-    };
-
-    let halfStar = '';
-    if ((ratingValue % 1) !== 0) {
-      halfStar += '★'
-    };
-
+    const percentageOfStars = ratingValue * 20;
+    const classNamePercentage = 'stars-' + percentageOfStars;
+    console.log(classNamePercentage)
     return (
       <div>
-        <div className="full-star">
-          {fullStars}
-        </div>
-        <div className="half-star">
-          {halfStar}
+        <div 
+          className='full-star'
+          className={classNamePercentage}>
+          ★★★★★
         </div>
       </div>
     )
