@@ -34,9 +34,9 @@ class MainRating extends React.Component {
   render() {
     const totalAverage = this.calculateTotalAverage(this.props.allAverageRatings);
     return (
-        <div className="review-count">{this.props.numberOfReviews} Reviews {this.createVisualStars(totalAverage)}</div>
-    )
+      <div className="review-count">{this.props.numberOfReviews} Reviews {this.createVisualStars(totalAverage)}</div>
+    );
   }
-};
+}
 
 export default MainRating;

@@ -99,7 +99,7 @@ class App extends React.Component {
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
-      )
+      );
     }
     const currentTerm = this.state.currentSearchTerm;
     return (
