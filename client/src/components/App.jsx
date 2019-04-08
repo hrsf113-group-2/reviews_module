@@ -4,6 +4,7 @@ import Search from './Search';
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
 import MainRating from './MainRating';
+
 class App extends React.Component {
   constructor() {
     super();
