@@ -1,30 +1,23 @@
 import React from 'react';
 
-/* I want this component to conditioanlly render based on whether there's a matching search term
-Also conditionally render when we have searched.
-So it needs to know the following:
-1. We have submitted a search
-2. Whether that search returned at least 1 review.
-
-*/
+import styles from './SearchDescription.css';
 
 class SearchDescription extends React.Component {
-
   render() {
     if (this.props.searchedReviews.length === 0) {
       return (
-        <div>
+        <div className="search-description">
           <p>None of our guests have mentioned "{this.props.currentSearchTerm}"</p>
-          <div onClick={this.props.backToAllReviews}>Back to all reviews</div>
+          <div className="back-button" onClick={this.props.backToAllReviews}>Back to all reviews</div>
         </div>
       );
     }
     return (
-        <div>
+        <div className="search-description">
           <p>{this.props.searchedReviews.length} of our guests have mentioned "{this.props.currentSearchTerm}"</p>
-          <div onClick={this.props.backToAllReviews}>Back to all reviews</div>
+          <div className="back-button" onClick={this.props.backToAllReviews}>Back to all reviews</div>
         </div>
-    )
+    );
   }
 }
 
