@@ -25,9 +25,7 @@
   left: 100px;
   display: block;
   height: 22px;
-  width: 584px;
   font-weight: bold;
-  flex: 1;
   
   border: solid black 1px;
 }
@@ -37,8 +35,6 @@
   line-height: 18px;
   display: block;
   height: 20px;
-  width: 584px;
-  flex: 1;
   
   border: solid black 1px;
 }

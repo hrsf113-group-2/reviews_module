@@ -6,14 +6,14 @@ class ReviewText extends React.Component {
 
     this.state = {
       fullRender: false,
-    }
+    };
     this.readFullReview = this.readFullReview.bind(this);
   }
 
   readFullReview() {
     this.setState({
       fullRender: true,
-    })
+    });
   }
 
   render() {
@@ -24,14 +24,13 @@ class ReviewText extends React.Component {
           {currentReviewText}
         </p>
       )
-    } else {
-      return (
+    }
+    return (
       <div>
         <p>{currentReviewText.substring(0,250)}...</p>
         <span onClick={this.readFullReview}>Read more</span>
       </div>
-      )
-    }
+    );
   }
 }
 
