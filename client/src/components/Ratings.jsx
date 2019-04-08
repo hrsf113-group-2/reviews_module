@@ -23,21 +23,21 @@ class Ratings extends React.Component {
           <div>Accuracy</div>
           <div>{this.createVisualStars(allAverageRatings.accuracy)}</div>
         </div>
-        <div className="rating communication">
-          <div>Communication</div>
-          <div>{this.createVisualStars(allAverageRatings.communication)}</div>
-        </div>
-        <div className="rating cleanliness">
-          <div>Cleanliness</div>
-          <div>{this.createVisualStars(allAverageRatings.cleanliness)}</div>
-        </div>
         <div className="rating location">
           <div>Location</div>
           <div>{this.createVisualStars(allAverageRatings.location)}</div>
         </div>
+        <div className="rating communication">
+          <div>Communication</div>
+          <div>{this.createVisualStars(allAverageRatings.communication)}</div>
+        </div>
         <div className="rating checkin">
           <div>Check-In</div>
           <div>{this.createVisualStars(allAverageRatings.checkin)}</div>
+        </div>
+        <div className="rating cleanliness">
+          <div>Cleanliness</div>
+          <div>{this.createVisualStars(allAverageRatings.cleanliness)}</div>
         </div>
         <div className="rating value">
           <div>Value</div>
