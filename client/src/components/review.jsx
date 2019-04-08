@@ -18,7 +18,7 @@ class Review extends React.Component {
       <div className="full-review">
         <img className="avatar" src={this.props.review.avatar}></img>
         <div className="user-info">
-          <div className="name">{this.props.review.name}</div>
+          <div className="name">{this.props.review.name.split(' ')[0]}</div>
           <div className="date">{currentMonthName} {currentYear}</div>
         </div>
         <ReviewText reviewText={this.props.review.text}/>
