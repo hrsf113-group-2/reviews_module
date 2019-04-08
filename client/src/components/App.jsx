@@ -4,7 +4,9 @@ import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import MainRating from './MainRating.jsx';
+import SearchDescription from './SearchDescription.jsx';
 import styles from './App.css';
+
 
 class App extends React.Component {
   constructor() {
@@ -121,10 +123,7 @@ class App extends React.Component {
           searchBarTextChange={this.searchBarTextChange}/>
         </div>
         <Ratings allAverageRatings={this.state.allAverageRatings}/>
-        <div className="no-results">
-          <p>None of our guests have mentioned "{currentTerm}"</p>
-          <div>Back to all reviews</div>
-        </div>
+        <SearchDescription currentSearchTerm={currentTerm}/>
       </div>
     );
   }
