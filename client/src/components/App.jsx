@@ -16,6 +16,7 @@ class App extends React.Component {
       currentReviews: [],
       currentSearchTerm: '',
       allAverageRatings: {},
+      isSearching: false,
     };
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
@@ -55,7 +56,10 @@ class App extends React.Component {
       }
     }
 
-    this.setState(() => ({ currentReviews: selectedArray }));
+    this.setState(() => ({
+      currentReviews: selectedArray,
+      isSearching: true,
+    }));
   }
 
   calculateAverageRating(ratingCategory) {
@@ -91,7 +95,7 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.currentReviews.length > 0) {
+    if (!this.state.isSearching) {
       return (
         <div className="main-app">
           <div className="header">
