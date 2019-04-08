@@ -103,23 +103,10 @@ class App extends React.Component {
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
       )
-<<<<<<< HEAD
-=======
-    } else {
-      const currentTerm = this.state.currentSearchTerm;
-      return(
-        <div className="main-app">
-          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <Ratings allAverageRatings={this.state.allAverageRatings}/>
-          <p>None of our guests have mentioned "{currentTerm}"</p>
-          <div>Back to all reviews</div>
-        </div>
-      )
->>>>>>> Add classNames to which CSS will be applied
     }
     const currentTerm = this.state.currentSearchTerm;
     return (
-      <div>
+      <div className="main-app">
         <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
         <Ratings allAverageRatings={this.state.allAverageRatings}/>
         <p>None of our guests have mentioned "{currentTerm}"</p>

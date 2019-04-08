@@ -1,9 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import styles from './Ratings.css';
-=======
-import styles from './Ratings.css'
->>>>>>> Modify styling of Ratings
+
 class Ratings extends React.Component {
   createVisualStars(ratingValue) {
     const percentageOfStars = ratingValue * 20;
