@@ -12,7 +12,11 @@ import Search from './Search';
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
 import MainRating from './MainRating';
+<<<<<<< HEAD
 >>>>>>> Pass down numberOfReviews and allAverageRatings to MainRating.js
+=======
+
+>>>>>>> Add line between import and class definition
 class App extends React.Component {
   constructor() {
     super();
