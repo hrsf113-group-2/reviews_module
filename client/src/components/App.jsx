@@ -91,14 +91,9 @@ class App extends React.Component {
   render() {
     if (this.state.currentReviews.length > 0) {
       return (
-<<<<<<< HEAD
-        <div>
-          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
-=======
         <div className="main-app">
+          <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
           <Search className="search" searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
->>>>>>> Add classNames to which CSS will be applied
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
