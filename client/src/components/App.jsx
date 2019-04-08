@@ -92,8 +92,10 @@ class App extends React.Component {
     if (this.state.currentReviews.length > 0) {
       return (
         <div className="main-app">
-          <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
-          <Search className="search" searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+          <div className="header">
+            <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
+            <Search className="search" searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+          </div>
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
@@ -102,7 +104,10 @@ class App extends React.Component {
     const currentTerm = this.state.currentSearchTerm;
     return (
       <div className="main-app">
-        <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+        <div className="header">
+          <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
+          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+        </div>
         <Ratings allAverageRatings={this.state.allAverageRatings}/>
         <div className="no-results">
           <p>None of our guests have mentioned "{currentTerm}"</p>

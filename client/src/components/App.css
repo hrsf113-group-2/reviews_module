@@ -3,6 +3,12 @@
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
 }
 
+.header {
+  display: flex;
+  padding-bottom: 15px;
+  border-bottom: solid silver 1px;
+}
+
 .no-results {
 
 }

@@ -3,6 +3,9 @@
   flex-wrap: wrap;
   width: 594px;
   justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: solid silver 1px;
 }
 
 .rating {
