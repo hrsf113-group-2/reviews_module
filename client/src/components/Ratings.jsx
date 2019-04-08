@@ -19,12 +19,30 @@ class Ratings extends React.Component {
     const { allAverageRatings } = this.props;
     return (
       <div className="sub-ratings">
-        <div className="rating accuracy">Accuracy {this.createVisualStars(allAverageRatings.accuracy)}</div>
-        <div className="rating communication">Communication {this.createVisualStars(allAverageRatings.communication)}</div>
-        <div className="rating cleanliness">Cleanliness {this.createVisualStars(allAverageRatings.cleanliness)}</div>
-        <div className="rating location">Location {this.createVisualStars(allAverageRatings.location)}</div>
-        <div className="rating checkin">Check-In {this.createVisualStars(allAverageRatings.checkin)}</div>
-        <div className="rating value">Value {this.createVisualStars(allAverageRatings.value)}</div>
+        <div className="rating accuracy">
+          <div>Accuracy</div>
+          <div>{this.createVisualStars(allAverageRatings.accuracy)}</div>
+        </div>
+        <div className="rating communication">
+          <div>Communication</div>
+          <div>{this.createVisualStars(allAverageRatings.communication)}</div>
+        </div>
+        <div className="rating cleanliness">
+          <div>Cleanliness</div>
+          <div>{this.createVisualStars(allAverageRatings.cleanliness)}</div>
+        </div>
+        <div className="rating location">
+          <div>Location</div>
+          <div>{this.createVisualStars(allAverageRatings.location)}</div>
+        </div>
+        <div className="rating checkin">
+          <div>Check-In</div>
+          <div>{this.createVisualStars(allAverageRatings.checkin)}</div>
+        </div>
+        <div className="rating value">
+          <div>Value</div>
+          <div>{this.createVisualStars(allAverageRatings.value)}</div>
+        </div>
       </div>
     );
   }
