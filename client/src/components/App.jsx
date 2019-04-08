@@ -135,7 +135,7 @@ class App extends React.Component {
           searchBarTextChange={this.searchBarTextChange}/>
         </div>
         <Ratings allAverageRatings={this.state.allAverageRatings}/>
-        <SearchDescription backToAllReviews={this.backToAllReviews} currentSearchTerm={currentTerm}/>
+        <SearchDescription searchedReviews={this.state.currentReviews} backToAllReviews={this.backToAllReviews} currentSearchTerm={currentTerm}/>
       </div>
     );
   }

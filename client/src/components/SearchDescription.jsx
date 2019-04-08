@@ -9,13 +9,21 @@ So it needs to know the following:
 */
 
 class SearchDescription extends React.Component {
+
   render() {
+    if (this.props.searchedReviews.length === 0) {
+      return (
+        <div>
+          <p>None of our guests have mentioned "{this.props.currentSearchTerm}"</p>
+          <div onClick={this.props.backToAllReviews}>Back to all reviews</div>
+        </div>
+      );
+    }
     return (
       <div>
-        <p>None of our guests have mentioned "{this.props.currentSearchTerm}"</p>
-        <div onClick={this.props.backToAllReviews}>Back to all reviews</div>
+        If you reach here, that means we have some reviews
       </div>
-    );
+    )
   }
 }
 
