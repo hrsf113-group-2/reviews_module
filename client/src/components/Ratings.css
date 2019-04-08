@@ -7,7 +7,6 @@
 
 .rating {
   flex: 0 0 280px;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   display: flex;
   justify-content: space-between;
 }

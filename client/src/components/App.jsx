@@ -109,8 +109,10 @@ class App extends React.Component {
       <div className="main-app">
         <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
         <Ratings allAverageRatings={this.state.allAverageRatings}/>
-        <p>None of our guests have mentioned "{currentTerm}"</p>
-        <div>Back to all reviews</div>
+        <div className="no-results">
+          <p>None of our guests have mentioned "{currentTerm}"</p>
+          <div>Back to all reviews</div>
+        </div>
       </div>
     );
   }
