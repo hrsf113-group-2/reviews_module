@@ -93,8 +93,14 @@ class App extends React.Component {
       return (
         <div className="main-app">
           <div className="header">
-            <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
-            <Search className="search" searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+            <MainRating
+            className="main-rating"
+            allAverageRatings={this.state.allAverageRatings}
+            numberOfReviews={this.state.allReviews.length}/>
+            <Search
+            className="search"
+            searchSubmit={this.searchSubmit}
+            searchBarTextChange={this.searchBarTextChange}/>
           </div>
           <Ratings allAverageRatings={this.state.allAverageRatings}/>
           <ReviewsList currentReviews={this.state.currentReviews}/>
@@ -105,8 +111,14 @@ class App extends React.Component {
     return (
       <div className="main-app">
         <div className="header">
-          <MainRating allAverageRatings={this.state.allAverageRatings} numberOfReviews={this.state.allReviews.length}/>
-          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+          <MainRating
+          className="main-rating"
+          allAverageRatings={this.state.allAverageRatings}
+          numberOfReviews={this.state.allReviews.length}/>
+          <Search
+          className="search"
+          searchSubmit={this.searchSubmit}
+          searchBarTextChange={this.searchBarTextChange}/>
         </div>
         <Ratings allAverageRatings={this.state.allAverageRatings}/>
         <div className="no-results">
