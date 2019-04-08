@@ -22,15 +22,16 @@ class App extends React.Component {
   componentDidMount() {
     const component = this;
     axios('http://localhost:3000/locations/2/reviews')
-    .then(location => {
-      component.setState(
-        {allReviews: location.data.reviews,
-         currentReviews: location.data.reviews,
-        }
-      )
-    })
-    .then(() => component.storeAllAverageRatings());
-  };
+      .then((location) => {
+        component.setState(
+          {
+            allReviews: location.data.reviews,
+            currentReviews: location.data.reviews,
+          },
+        );
+      })
+      .then(() => component.storeAllAverageRatings());
+  }
 
   searchBarTextChange(e) {
     this.setState({
@@ -38,7 +39,7 @@ class App extends React.Component {
     });
   }
 
-  searchSubmit(e) { 
+  searchSubmit(e) {
     e.preventDefault();
 
     const selectedArray = [];

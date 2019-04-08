@@ -1,9 +1,6 @@
 import React from 'react';
 import styles from './Ratings.css';
 class Ratings extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   createVisualStars(ratingValue) {
     const percentageOfStars = ratingValue * 20;

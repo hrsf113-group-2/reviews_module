@@ -1,22 +1,17 @@
 import React from 'react';
 import ReviewText from './ReviewText';
 class Review extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const months = [
       'January', 'February', 'March', 'April', 'May',
       'June', 'July', 'August', 'September', 'October',
-      'November', 'December'
-  ]
-    
+      'November', 'December',
+    ];
+
     const dateObject = new Date(this.props.review.date);
     const currentYear = dateObject.getFullYear();
     const currentMonthNum = dateObject.getMonth();
     const currentMonthName = months[currentMonthNum];
-    
 
     return (
       <div>
@@ -25,7 +20,7 @@ class Review extends React.Component {
         <div>{currentMonthName} {currentYear}</div>
         <ReviewText reviewText={this.props.review.text}/>
       </div>
-    )
+    );
   }
 }
 
