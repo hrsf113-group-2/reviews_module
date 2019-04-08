@@ -13,7 +13,6 @@ class Search extends React.Component {
         placeholder="Search reviews"></input>
       </div>
       </form>
-
     );
   }
 }
