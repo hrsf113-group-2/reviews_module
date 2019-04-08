@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ReviewText.css';
 
 class ReviewText extends React.Component {
   constructor(props) {
@@ -23,12 +24,13 @@ class ReviewText extends React.Component {
         <p>
           {currentReviewText}
         </p>
-      )
+      );
     }
     return (
-      <div>
-        <p>{currentReviewText.substring(0,250)}...</p>
-        <span onClick={this.readFullReview}>Read more</span>
+      <div className="review-text">
+        <p>{currentReviewText.substring(0,250)}...
+        <div className="read-more" onClick={this.readFullReview}>Read more</div>
+        </p>
       </div>
     );
   }

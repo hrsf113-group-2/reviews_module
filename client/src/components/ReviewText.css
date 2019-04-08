@@ -1,0 +1,12 @@
+.review-text {
+  font-size: 16px;
+}
+
+.read-more {
+  color: #008489;  
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
