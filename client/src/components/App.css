@@ -6,7 +6,7 @@
 .header {
   display: flex;
   padding-bottom: 15px;
-  border-bottom: solid silver 1px;
+  border-bottom: solid #efefef 1px;
 }
 
 .no-results {
