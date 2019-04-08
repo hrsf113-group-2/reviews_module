@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Ratings.css';
 class Ratings extends React.Component {
-
   createVisualStars(ratingValue) {
     const percentageOfStars = ratingValue * 20;
     const classNamePercentage = 'stars-' + percentageOfStars;
@@ -26,8 +25,8 @@ class Ratings extends React.Component {
         <div>Check-In {this.createVisualStars(allAverageRatings.checkin)}</div>
         <div>Value {this.createVisualStars(allAverageRatings.value)}</div>
       </div>
-    )
+    );
   }
-};
+}
 
 export default Ratings;
