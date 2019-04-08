@@ -1,12 +1,8 @@
 .full-star {
-  color: blue;
-}
-
-.full-star {
   position: relative;
   display: inline-block;
   color: transparent;
-  font-size: 80px;
+  font-size: 24px;
 }
 
 .full-star:before{
@@ -22,7 +18,7 @@
   top: 0;
   left: 0;
   content: '★★★★★';
-  color: gold;
+  color: #008489 !important;
   overflow: hidden;
 }
 
