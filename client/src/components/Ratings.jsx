@@ -5,11 +5,6 @@ class Ratings extends React.Component {
   }
 
   createVisualStars(ratingValue) {
-    // CURRENT FUNCTIONALITY: 
-    // WILL RENDER CORRECT NUMBER OF FULL STARS
-    // WILL RENDER A FULL STAR IF THERE'S A HALF STAR
-    // NEED TO ADD CLASSES TO THE FULL STARS AND THE HALF STARS SO I CAN DRAW THEM SEPERATELY
-
     const numberOfFullStars = Math.floor(ratingValue);
 
     let fullStars = '';
@@ -22,7 +17,6 @@ class Ratings extends React.Component {
       halfStar += '★'
     };
 
-    // stars now have their own individual classes, find out how to append the half star to the end of the full star.
     return (
       <div>
         <div className="full-star">
@@ -37,15 +31,15 @@ class Ratings extends React.Component {
 
 
   render() {
+    const { allAverageRatings } = this.props;
     return (
       <div>
-        TEST OF FULL STAR RENDERING {this.createVisualStars(this.props.allAverageRatings.accuracy)}
-        <div>Accuracy {this.props.allAverageRatings.accuracy}</div>
-        <div>Communication {this.props.allAverageRatings.communication}</div>
-        <div>Cleanliness {this.props.allAverageRatings.cleanliness}</div>
-        <div>Location {this.props.allAverageRatings.location}</div>
-        <div>Check-In {this.props.allAverageRatings.checkin}</div>
-        <div>Value {this.props.allAverageRatings.value}</div>
+        <div>Accuracy {this.createVisualStars(allAverageRatings.accuracy)}</div>
+        <div>Communication {this.createVisualStars(allAverageRatings.communication)}</div>
+        <div>Cleanliness {this.createVisualStars(allAverageRatings.cleanliness)}</div>
+        <div>Location {this.createVisualStars(allAverageRatings.location)}</div>
+        <div>Check-In {this.createVisualStars(allAverageRatings.checkin)}</div>
+        <div>Value {this.createVisualStars(allAverageRatings.value)}</div>
       </div>
     )
   }
