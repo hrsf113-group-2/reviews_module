@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './MainRating.css';
 class MainRating extends React.Component {
   constructor(props) {
     super(props);
@@ -33,9 +34,9 @@ class MainRating extends React.Component {
   render() {
     const totalAverage = this.calculateTotalAverage(this.props.allAverageRatings);
     return (
-      <div>
-        <div>{this.props.numberOfReviews} Reviews</div>
-        <div>{this.createVisualStars(totalAverage)}</div>
+      <div className="main-rating">
+        <div className="review-count">{this.props.numberOfReviews} Reviews</div>
+        <div className="main-rating-stars">{this.createVisualStars(totalAverage)}</div>
       </div>
     )
   }
