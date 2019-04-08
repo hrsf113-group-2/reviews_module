@@ -13,7 +13,7 @@ class SearchDescription extends React.Component {
     return (
       <div>
         <p>None of our guests have mentioned "{this.props.currentSearchTerm}"</p>
-        <div>Back to all reviews</div>
+        <div onClick={this.props.backToAllReviews}>Back to all reviews</div>
       </div>
     );
   }

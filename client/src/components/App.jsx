@@ -22,6 +22,7 @@ class App extends React.Component {
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
     this.storeAllAverageRatings = this.storeAllAverageRatings.bind(this);
+    this.backToAllReviews = this.backToAllReviews.bind(this);
   }
 
   componentDidMount() {
@@ -55,11 +56,18 @@ class App extends React.Component {
         selectedArray.push(this.state.allReviews[i]);
       }
     }
-
     this.setState(() => ({
       currentReviews: selectedArray,
       isSearching: true,
     }));
+  }
+
+  backToAllReviews() {
+    this.setState({
+      currentReviews: this.state.allReviews,
+      isSearching: false,
+      currentSearchTerm: '',
+    });
   }
 
   calculateAverageRating(ratingCategory) {
@@ -127,7 +135,7 @@ class App extends React.Component {
           searchBarTextChange={this.searchBarTextChange}/>
         </div>
         <Ratings allAverageRatings={this.state.allAverageRatings}/>
-        <SearchDescription currentSearchTerm={currentTerm}/>
+        <SearchDescription backToAllReviews={this.backToAllReviews} currentSearchTerm={currentTerm}/>
       </div>
     );
   }
