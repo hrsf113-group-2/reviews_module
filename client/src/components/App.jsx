@@ -134,7 +134,6 @@ class App extends React.Component {
           searchSubmit={this.searchSubmit}
           searchBarTextChange={this.searchBarTextChange}/>
         </div>
-        <Ratings allAverageRatings={this.state.allAverageRatings}/>
         <SearchDescription searchedReviews={this.state.currentReviews} backToAllReviews={this.backToAllReviews} currentSearchTerm={currentTerm}/>
       </div>
     );

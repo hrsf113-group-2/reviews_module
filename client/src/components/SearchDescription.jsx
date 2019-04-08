@@ -20,9 +20,10 @@ class SearchDescription extends React.Component {
       );
     }
     return (
-      <div>
-        If you reach here, that means we have some reviews
-      </div>
+        <div>
+          <p>{this.props.searchedReviews.length} of our guests have mentioned "{this.props.currentSearchTerm}"</p>
+          <div onClick={this.props.backToAllReviews}>Back to all reviews</div>
+        </div>
     )
   }
 }
