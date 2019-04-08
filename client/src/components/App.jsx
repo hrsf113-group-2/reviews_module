@@ -1,29 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import Search from './Search.jsx';
 import Ratings from './Ratings.jsx';
 import ReviewsList from './ReviewsList.jsx';
 import MainRating from './MainRating.jsx';
 
 
-=======
-=======
->>>>>>> d36cb0da25a5752e032c9a05bcba7abb88b61434
-import Search from './Search';
-import Ratings from './Ratings';
-import ReviewsList from './ReviewsList';
-import MainRating from './MainRating';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Pass down numberOfReviews and allAverageRatings to MainRating.js
-=======
-
->>>>>>> Add line between import and class definition
-=======
-
->>>>>>> d36cb0da25a5752e032c9a05bcba7abb88b61434
 class App extends React.Component {
   constructor() {
     super();
