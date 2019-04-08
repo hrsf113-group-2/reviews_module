@@ -1,18 +1,8 @@
-/* RATINGS: I NEED TO...
-1. Limit the whole thing to a width=1577px and height=595px 
-2. Have 3 rows of ratings.
-3. Have two ratings appear on each line, side by side.
-
-
-*/
-
 .sub-ratings {
   display: flex;
   flex-wrap: wrap;
   width: 594px;
   justify-content: space-between;
-
-  border: solid black 1px;
 }
 
 .rating {
