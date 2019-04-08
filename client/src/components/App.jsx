@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import Review from './review';
-import Search from './Search';
-import Ratings from './Ratings';
-import ReviewsList from './ReviewsList';
+import Search from './Search.jsx';
+import Ratings from './Ratings.jsx';
+import ReviewsList from './ReviewsList.jsx';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -12,59 +12,59 @@ class App extends React.Component {
       currentReviews: [],
       currentSearchTerm: null,
       allAverageRatings: {},
-    }
+    };
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
     this.storeAllAverageRatings = this.storeAllAverageRatings.bind(this);
   }
-  
+
   componentDidMount() {
-    const component = this; 
+    const component = this;
     axios('http://localhost:3000/locations/2/reviews')
-    .then(location => {
-      component.setState(
-        {allReviews: location.data.reviews,
-         currentReviews: location.data.reviews,
-        }
-      )
-    })
-    .then(() => component.storeAllAverageRatings());
-  };
+      .then((location) => {
+        component.setState(
+          {
+            allReviews: location.data.reviews,
+            currentReviews: location.data.reviews,
+          },
+        );
+      })
+      .then(() => component.storeAllAverageRatings());
+  }
 
   searchBarTextChange(e) {
     this.setState({
-      currentSearchTerm: e.target.value
+      currentSearchTerm: e.target.value,
     });
   }
 
-  searchSubmit(e) { 
+  searchSubmit(e) {
     e.preventDefault();
-    
-    const selectedArray = [];
-    for (let i = 0; i < this.state.allReviews.length; i++) {
-      let currentReviewObject = this.state.allReviews[i];
-      let currentReviewText = currentReviewObject.text;
-      if (currentReviewText.includes(this.state.currentSearchTerm)) { // make sure e.target.value is the actual text
-        selectedArray.push(this.state.allReviews[i]); 
-      }
-    };
 
-    this.setState(() => {
-      return {currentReviews: selectedArray}
-    });
+    const selectedArray = [];
+    for (let i = 0; i < this.state.allReviews.length; i += 1) {
+      const currentReviewObject = this.state.allReviews[i];
+      const currentReviewText = currentReviewObject.text;
+      if (currentReviewText.includes(this.state.currentSearchTerm)) {
+        selectedArray.push(this.state.allReviews[i]);
+      }
+    }
+
+    this.setState(() => ({ currentReviews: selectedArray }));
   }
 
   calculateAverageRating(ratingCategory) {
     let combinedRatingTotal = 0;
-    let numberOfReviews = this.state.allReviews.length;
+    const numberOfReviews = this.state.allReviews.length;
     for (let i = 0; i < numberOfReviews; i += 1) {
       combinedRatingTotal += this.state.allReviews[i][ratingCategory];
     }
     const averageRating = combinedRatingTotal / numberOfReviews;
-    const nearestHalfRating = Math.ceil(averageRating*2)/2
+    const nearestHalfRating = Math.ceil(averageRating * 2) / 2;
     return nearestHalfRating;
   }
+
 
   storeAllAverageRatings() {
     const accuracy = this.calculateAverageRating('rating-accuracy');
@@ -74,18 +74,18 @@ class App extends React.Component {
     const checkin = this.calculateAverageRating('rating-check-in');
     const value = this.calculateAverageRating('rating-value');
     const allAverageRatings = {
-      accuracy: accuracy,
-      communication: communication,
-      cleanliness: cleanliness,
-      location: location,
-      checkin: checkin,
-      value: value,
-    }
+      accuracy,
+      communication,
+      cleanliness,
+      location,
+      checkin,
+      value,
+    };
     this.setState({
-      allAverageRatings: allAverageRatings,
-    })
+      allAverageRatings,
+    });
   }
-  
+
   render() {
     if (this.state.currentReviews.length > 0) {
       return (
@@ -95,17 +95,16 @@ class App extends React.Component {
           <ReviewsList currentReviews={this.state.currentReviews}/>
         </div>
       )
-    } else {
-      const currentTerm = this.state.currentSearchTerm;
-      return(
-        <div>
-          <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
-          <Ratings allAverageRatings={this.state.allAverageRatings}/>
-          <p>None of our guests have mentioned "{currentTerm}"</p>
-          <div>Back to all reviews</div>
-        </div>
-      )
     }
+    const currentTerm = this.state.currentSearchTerm;
+    return (
+      <div>
+        <Search searchSubmit={this.searchSubmit} searchBarTextChange={this.searchBarTextChange}/>
+        <Ratings allAverageRatings={this.state.allAverageRatings}/>
+        <p>None of our guests have mentioned "{currentTerm}"</p>
+        <div>Back to all reviews</div>
+      </div>
+    );
   }
 }
 

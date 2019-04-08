@@ -1,31 +1,15 @@
 import React from 'react';
+import styles from './Ratings.css';
 class Ratings extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   createVisualStars(ratingValue) {
-    const numberOfFullStars = Math.floor(ratingValue);
-
-    let fullStars = '';
-    for (let i = 0; i < numberOfFullStars; i += 1) {
-      fullStars += '★';
-    };
-
-    let halfStar = '';
-    if ((ratingValue % 1) !== 0) {
-      halfStar += '★'
-    };
-
+    const percentageOfStars = ratingValue * 20;
+    const classNamePercentage = 'stars-' + percentageOfStars;
+    const classNames = 'full-star ' + classNamePercentage;
     return (
-      <div>
-        <div className="full-star">
-          {fullStars}
+        <div 
+        className={classNames}>
+          ★★★★★
         </div>
-        <div className="half-star">
-          {halfStar}
-        </div>
-      </div>
     )
   }
 
@@ -41,8 +25,8 @@ class Ratings extends React.Component {
         <div>Check-In {this.createVisualStars(allAverageRatings.checkin)}</div>
         <div>Value {this.createVisualStars(allAverageRatings.value)}</div>
       </div>
-    )
+    );
   }
-};
+}
 
 export default Ratings;

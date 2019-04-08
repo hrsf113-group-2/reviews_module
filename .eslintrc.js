@@ -5,6 +5,21 @@ module.exports = {
     node: true,
   },
   extends: 'airbnb-base',
+  globals: {
+    Atomics: "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+  },
   rules: {
   },
+  plugins: [
+    "react"
+  ],
+  "parser":"babel-eslint"
 };
