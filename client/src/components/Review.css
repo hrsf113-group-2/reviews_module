@@ -1,6 +1,8 @@
 
 .full-review {
   display: flex;
+  flex-wrap: wrap;
+
   color: black;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
@@ -13,6 +15,7 @@
   border-radius: 50%;
   height: 48px;
   width: 48px;
+  align-self: flex-start;
 
   border: solid black 1px;
 }
@@ -42,4 +45,7 @@
 .review-text {
   border: solid black 1px;
   flex: 3;
+  align-self: flex-end;
+
+  border: solid black 1px;
 }
