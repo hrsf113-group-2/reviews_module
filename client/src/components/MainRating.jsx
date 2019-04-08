@@ -18,11 +18,24 @@ class MainRating extends React.Component {
     return nearestHalfRating;
   }
 
+  createVisualStars(ratingValue) {
+    const percentageOfStars = ratingValue * 20;
+    const classNamePercentage = 'stars-' + percentageOfStars;
+    const classNames = 'full-star ' + classNamePercentage;
+    return (
+        <div 
+        className={classNames}>
+          ★★★★★
+        </div>
+    )
+  }
+
   render() {
+    const totalAverage = this.calculateTotalAverage(this.props.allAverageRatings);
     return (
       <div>
         <div>{this.props.numberOfReviews} Reviews</div>
-        <div>Total Average Rating: {this.calculateTotalAverage(this.props.allAverageRatings)}</div>
+        <div>{this.createVisualStars(totalAverage)}</div>
       </div>
     )
   }
