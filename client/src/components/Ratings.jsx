@@ -8,8 +8,7 @@ class Ratings extends React.Component {
   createVisualStars(ratingValue) {
     const percentageOfStars = ratingValue * 20;
     const classNamePercentage = 'stars-' + percentageOfStars;
-    const classNames = 'full-star ' + classNamePercentage
-    console.log(classNamePercentage)
+    const classNames = 'full-star ' + classNamePercentage;
     return (
         <div 
         className={classNames}>
