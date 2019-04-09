@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import Search from './Search.jsx';
-import Ratings from './Ratings.jsx';
-import ReviewsList from './ReviewsList.jsx';
-import MainRating from './MainRating.jsx';
-import SearchDescription from './SearchDescription.jsx';
+import Search from './Search';
+import Ratings from './Ratings';
+import ReviewsList from './ReviewsList';
+import MainRating from './MainRating';
+import SearchDescription from './SearchDescription';
 import styles from './App.css';
 
 
