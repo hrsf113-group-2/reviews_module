@@ -103,38 +103,43 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.state.isSearching) {
+    const {
+      isSearching, allAverageRatings, allReviews, currentReviews, currentSearchTerm,
+    } = this.state;
+    if (!isSearching) {
       return (
         <div className="main-app">
           <div className="header">
             <MainRating
             className="main-rating"
-            allAverageRatings={this.state.allAverageRatings}
-            numberOfReviews={this.state.allReviews.length}/>
+            allAverageRatings={allAverageRatings}
+            numberOfReviews={allReviews.length}/>
             <Search
             className="search"
             searchSubmit={this.searchSubmit}
             searchBarTextChange={this.searchBarTextChange}/>
           </div>
-          <Ratings allAverageRatings={this.state.allAverageRatings}/>
-          <ReviewsList currentReviews={this.state.currentReviews}/>
+          <Ratings allAverageRatings={allAverageRatings}/>
+          <ReviewsList currentReviews={currentReviews}/>
         </div>
       );
     }
-    const currentTerm = this.state.currentSearchTerm;
     return (
       <div className="main-app">
         <div className="header">
           <MainRating
           className="main-rating"
-          allAverageRatings={this.state.allAverageRatings}
-          numberOfReviews={this.state.allReviews.length}/>
+          allAverageRatings={allAverageRatings}
+          numberOfReviews={allReviews.length}/>
           <Search
           className="search"
           searchSubmit={this.searchSubmit}
           searchBarTextChange={this.searchBarTextChange}/>
         </div>
-        <SearchDescription searchedReviews={this.state.currentReviews} backToAllReviews={this.backToAllReviews} currentSearchTerm={currentTerm}/>
+        <SearchDescription
+        searchedReviews={currentReviews}
+        backToAllReviews={this.backToAllReviews}
+        currentSearchTerm={currentSearchTerm}/>
       </div>
     );
   }
