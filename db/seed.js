@@ -10,13 +10,13 @@ for (let i = 1; i <= 100; i += 1) {
   const samplePosts = { locationID: i, reviews: [] };
 
 
-  // pick a random number between 1 and 20, then generate that many reviews
-  const numberOfReviews = Math.floor(Math.random() * 20) + 1;
+  // pick a random number between 1 and 100, then generate that many reviews
+  const numberOfReviews = Math.floor(Math.random() * 100) + 1;
   for (let j = 0; j < numberOfReviews; j += 1) {
     const review = {
       ID: j + 1,
       name: faker.name.findName(),
-      date: faker.date.recent(),
+      date: faker.date.between('2015-01-01', '2018-04-08'),
       avatar: faker.image.avatar(),
       text: faker.lorem.paragraphs(),
       'rating-accuracy': createRandomFiveStarRating(),
