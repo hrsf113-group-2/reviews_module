@@ -3,6 +3,7 @@
   justify-content: space-between;
   border-top: solid #efefef 1px;
   border-bottom: solid #efefef 1px;
+  align-items: center;
 }
 .back-button {
   color: #008489;
