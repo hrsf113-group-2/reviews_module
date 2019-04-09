@@ -1,0 +1,14 @@
+.search-description {
+  display: flex;
+  justify-content: space-between;
+  border-top: solid #efefef 1px;
+  border-bottom: solid #efefef 1px;
+}
+.back-button {
+  color: #008489;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

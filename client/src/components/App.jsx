@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import Search from './Search.jsx';
-import Ratings from './Ratings.jsx';
-import ReviewsList from './ReviewsList.jsx';
-import MainRating from './MainRating.jsx';
+import Search from './Search';
+import Ratings from './Ratings';
+import ReviewsList from './ReviewsList';
+import MainRating from './MainRating';
+import SearchDescription from './SearchDescription';
 import styles from './App.css';
+
 
 class App extends React.Component {
   constructor() {
@@ -14,11 +16,13 @@ class App extends React.Component {
       currentReviews: [],
       currentSearchTerm: '',
       allAverageRatings: {},
+      isSearching: false,
     };
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
     this.storeAllAverageRatings = this.storeAllAverageRatings.bind(this);
+    this.backToAllReviews = this.backToAllReviews.bind(this);
   }
 
   componentDidMount() {
@@ -52,8 +56,18 @@ class App extends React.Component {
         selectedArray.push(this.state.allReviews[i]);
       }
     }
+    this.setState(() => ({
+      currentReviews: selectedArray,
+      isSearching: true,
+    }));
+  }
 
-    this.setState(() => ({ currentReviews: selectedArray }));
+  backToAllReviews() {
+    this.setState({
+      currentReviews: this.state.allReviews,
+      isSearching: false,
+      currentSearchTerm: '',
+    });
   }
 
   calculateAverageRating(ratingCategory) {
@@ -89,7 +103,7 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.currentReviews.length > 0) {
+    if (!this.state.isSearching) {
       return (
         <div className="main-app">
           <div className="header">
@@ -120,11 +134,7 @@ class App extends React.Component {
           searchSubmit={this.searchSubmit}
           searchBarTextChange={this.searchBarTextChange}/>
         </div>
-        <Ratings allAverageRatings={this.state.allAverageRatings}/>
-        <div className="no-results">
-          <p>None of our guests have mentioned "{currentTerm}"</p>
-          <div>Back to all reviews</div>
-        </div>
+        <SearchDescription searchedReviews={this.state.currentReviews} backToAllReviews={this.backToAllReviews} currentSearchTerm={currentTerm}/>
       </div>
     );
   }

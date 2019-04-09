@@ -28,9 +28,8 @@ class ReviewText extends React.Component {
     }
     return (
       <div className="review-text">
-        <p>{currentReviewText.substring(0,250)}...
+        <p className="sub-text">{currentReviewText.substring(0,250)}...</p>
         <div className="read-more" onClick={this.readFullReview}>Read more</div>
-        </p>
       </div>
     );
   }

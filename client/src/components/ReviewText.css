@@ -1,6 +1,11 @@
 
+.sub-text {
+  display: inline;
+}
+
 .read-more {
   color: #008489;  
+  display: inline;
 }
 
 .read-more:hover {
