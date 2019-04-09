@@ -4,7 +4,7 @@ const path = require('path');
 const Location = require('../db/db.js');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '/../client/dist')));
@@ -16,9 +16,7 @@ app.get('/locations/:locationID/reviews', (req, res) => {
       if (err) {
         res.sendStatus(500);
       } else {
-        /* Should I change this? I want to actually render the App component and have this currentLocationReviews
-         be passed into App state so that I can re-render, right?
-        */
+        res.set('access-control-allow-origin', '*');
         res.send(currentLocationReviews);
       }
     });

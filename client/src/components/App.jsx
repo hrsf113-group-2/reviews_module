@@ -27,7 +27,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const component = this;
-    axios('http://localhost:3000/locations/2/reviews')
+    axios('http://localhost:3001/locations/2/reviews')
       .then((location) => {
         component.setState(
           {
