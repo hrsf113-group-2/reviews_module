@@ -27,7 +27,9 @@ class App extends React.Component {
 
   componentDidMount() {
     const component = this;
-    axios('/locations/2/reviews')
+    const locationID = window.location.pathname.split('/')[2];
+    console.log('LocationID: ', locationID)
+    axios.get(`/api/locations/${locationID}/reviews`)
       .then((location) => {
         component.setState(
           {
