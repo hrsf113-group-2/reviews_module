@@ -8,6 +8,7 @@
 .input-bar:focus {
   border: solid #008489 2px;
   border-radius: 4px;
+  outline: none;
 }
 
 .search {

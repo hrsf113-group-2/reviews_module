@@ -19,7 +19,6 @@ class SearchDescription extends React.Component {
             <div className="back-button" onClick={this.props.backToAllReviews}>Back to all reviews</div>
           </div>
             {this.props.searchedReviews.map((review, index) => <Review key={index} review={review}/>)}
-            })}
         </div>
     );
   }
