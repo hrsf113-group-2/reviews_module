@@ -18,16 +18,20 @@
 
 ## Usage
 
-> Some usage instructions
+1. Install dependencies using the instructions below.
+2. Install and run a MongoDB server.
+3. Run the following script tags:  
+  npm start      - bundle the components
+  npm run seed   - seed your database 
+  npm run server - start the server
+4. Go to localhost:3004
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
 
 ## Development
+
+
 
 ### Installing Dependencies
 

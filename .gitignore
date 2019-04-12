@@ -5,6 +5,7 @@
 npm
 npm-debug.log
 node_modules/
+client/dist/main.js
 
 pids
 *.pid
@@ -22,5 +23,4 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-dist/main.js
 
