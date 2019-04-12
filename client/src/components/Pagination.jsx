@@ -6,8 +6,12 @@ class Pagination extends React.Component {
   }
 
   render() {
+    const { currentPage, reviewsPerPage } = this.props;
     return (
-      <div>Pagination Component now rendering!</div>
+      <div>
+        <div>Current Page = {currentPage}</div>
+        <div>Reviews per page = {reviewsPerPage}</div>
+      </div>
     )
   }
 }
