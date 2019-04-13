@@ -13,7 +13,7 @@ app.get('/api/locations/:locationID/reviews', (req, res) => {
   database.Location.findOne({ locationID: parseInt(req.params.locationID, 0) },
     (err, currentLocationReviews) => {
       if (err) {
-        res.send(err);
+        res.send(err); 
         // res.sendSta rtus(500);
 
       } else {
