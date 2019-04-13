@@ -24,3 +24,5 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 
+# Private Information
+Key123.pem

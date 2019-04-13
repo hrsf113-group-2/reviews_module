@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/locations', { useNewUrlParser: true });
+mongoose.connect('mongodb://172.17.0.2/locations', { useNewUrlParser: true });
 const db = mongoose.connection;
 
 // eslint-disable-next-line no-console
@@ -32,5 +32,4 @@ const locationSchema = new mongoose.Schema({
 
 const Location = mongoose.model('location', locationSchema);
 
-
-module.exports = Location;
+module.exports = { Location, db };

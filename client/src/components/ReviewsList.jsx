@@ -14,7 +14,7 @@ class ReviewsList extends React.Component {
 
   render() {
     const { currentReviews } = this.props;
-    const { currentPage, reviewsPerPage} = this.state;
+    const { currentPage, reviewsPerPage } = this.state;
     return (
       <div>
         {currentReviews.map((review, index) => <Review key={index} review={review}/>)}

@@ -1,5 +1,6 @@
 const faker = require('faker');
-const Location = require('./db.js');
+const database = require('./db.js');
+
 
 const createRandomFiveStarRating = () => faker.random.number({
   min: 1,
@@ -30,7 +31,9 @@ for (let i = 1; i <= 100; i += 1) {
   }
 
   const insertSampleBlogs = () => {
-    Location.create(samplePosts);
+    database.Location.create(samplePosts)
+      .then(() => database.db.close())
+      .catch((err) => console.log(err));
   };
   insertSampleBlogs();
 }
