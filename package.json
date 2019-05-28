@@ -8,8 +8,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "webpack --watch",
-    "server": "nodemon ./server/server.js",
+    "start": "npm run react && npm run server",
+    "react": "webpack -p",
+    "react-dev": "webpack -d --watch",
+    "server": "node ./server/server.js",
+    "server-dev": "nodemon ./server/server.js",
     "seed": "node db/seed.js",
     "test": "jest --coverage --colors"
   },

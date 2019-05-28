@@ -18,7 +18,14 @@
 
 ## Usage
 
-> Some usage instructions
+> To start this application, install all the dependencies and run the following script.
+1. Start a MongoDB server.
+
+```sh
+npm run seed
+npm start
+```
+Then head to localhost:3004/locations/:id/reviews, where :id can be any number between 1 and 100
 
 ## Requirements
 
