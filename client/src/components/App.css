@@ -11,9 +11,28 @@
 
 .pagination li {
   display: inline-block;
+  width: 32px;
+  height: 25px;
   margin: 10px;
+  color: #008489;
+  text-align: center;
+  margin-top: 10px;
 }
 
+.pagination li:hover {
+  cursor: pointer;
+}
+
+.pagination li.active {
+  color: white;
+  border-radius: 50%;
+  background-color: #008489;
+  padding-top: 10px;
+}
+
+.previous .disabled {
+  border: 1px black solid
+}
 
 .header {
   display: flex;
