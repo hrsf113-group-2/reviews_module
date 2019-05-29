@@ -35,10 +35,17 @@ class App extends React.Component {
     const locationID = window.location.pathname.split('/')[2];
     axios.get(`/api/locations/${locationID}/reviews`)
       .then((location) => {
+        // only first 5 reviews
+        let allReviews = location.data.reviews;
+        let currentReviews = [];
+        for (let i = 0; i < 5; i += 1) {
+          currentReviews.push(allReviews[i])
+        }
+
         component.setState(
           {
-            allReviews: location.data.reviews,
-            currentReviews: location.data.reviews,
+            allReviews,
+            currentReviews,
           },
         );
       })
@@ -110,13 +117,13 @@ class App extends React.Component {
 
   handlePageClick(page) {
     let currentPageMultiplier = page.selected;
-    let currentPageReviews = [];
+    let currentReviews = [];
     let i = 5 * currentPageMultiplier;
     let loopEnd = i + 4;
     for ( i; i <= loopEnd; i++ ) {
-      currentPageReviews.push(this.state.allReviews[i])
+      currentReviews.push(this.state.allReviews[i])
     }
-    this.setState({currentPageReviews: currentPageReviews})
+    this.setState({ currentReviews })
   }
 
 
