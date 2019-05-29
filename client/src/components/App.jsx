@@ -1,10 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import ReactPaginate from 'react-paginate';
+
 import Search from './Search';
 import Ratings from './Ratings';
 import ReviewsList from './ReviewsList';
 import MainRating from './MainRating';
 import SearchDescription from './SearchDescription';
+
 import styles from './App.css';
 
 
@@ -14,6 +17,7 @@ class App extends React.Component {
     this.state = {
       allReviews: [],
       currentReviews: [],
+      currentPageReviews: [],
       currentSearchTerm: '',
       allAverageRatings: {},
       isSearching: false,
@@ -23,6 +27,7 @@ class App extends React.Component {
     this.calculateAverageRating = this.calculateAverageRating.bind(this);
     this.storeAllAverageRatings = this.storeAllAverageRatings.bind(this);
     this.backToAllReviews = this.backToAllReviews.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   componentDidMount() {
@@ -103,6 +108,23 @@ class App extends React.Component {
     });
   }
 
+  handlePageClick(page) {
+    console.log('help: ', page)
+    // this gives the page we are on - 1, so we can use this to multiply how mahy items we want
+    // let's try to grab the right elements based on this
+    // page 0, 0-4, page 1, 5-9, page 2, 10-14, page 3, 15-19
+    let currentPageMultiplier = page.selected;
+    let currentPageReviews = [];
+    let i = 5 * currentPageMultiplier;
+    let loopEnd = i + 4;
+    for ( i; i <= loopEnd; i++ ) {
+      currentPageReviews.push(this.state.allReviews[i])
+    }
+    this.setState({currentPageReviews: currentPageReviews})
+    // console.log('current page reviews: ', currentPageReviews)
+  }
+
+
   render() {
     const {
       isSearching, allAverageRatings, allReviews, currentReviews, currentSearchTerm,
@@ -122,6 +144,20 @@ class App extends React.Component {
           </div>
           <Ratings allAverageRatings={allAverageRatings}/>
           <ReviewsList currentReviews={currentReviews}/>
+          <ReactPaginate
+            className="pagination-component"
+            previousLabel={'previous'}
+            nextLabel={'next'}
+            breakLabel={'...'}
+            breakClassName={'break-me'}
+            pageCount={this.state.pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={this.handlePageClick}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'}
+          />
         </div>
       );
     }
@@ -129,18 +165,18 @@ class App extends React.Component {
       <div className="main-app">
         <div className="header">
           <MainRating
-          className="main-rating"
-          allAverageRatings={allAverageRatings}
-          numberOfReviews={allReviews.length}/>
+            className="main-rating"
+            allAverageRatings={allAverageRatings}
+            numberOfReviews={allReviews.length}/>
           <Search
-          className="search"
-          searchSubmit={this.searchSubmit}
-          searchBarTextChange={this.searchBarTextChange}/>
+            className="search"
+            searchSubmit={this.searchSubmit}
+            searchBarTextChange={this.searchBarTextChange}/>
         </div>
         <SearchDescription
-        searchedReviews={currentReviews}
-        backToAllReviews={this.backToAllReviews}
-        currentSearchTerm={currentSearchTerm}/>
+          searchedReviews={currentReviews}
+          backToAllReviews={this.backToAllReviews}
+          currentSearchTerm={currentSearchTerm}/>
       </div>
     );
   }
