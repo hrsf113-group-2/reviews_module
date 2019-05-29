@@ -153,13 +153,14 @@ class App extends React.Component {
         <div className="main-app">
           <div className="header">
             <MainRating
-            className="main-rating"
-            allAverageRatings={allAverageRatings}
-            numberOfReviews={allReviews.length}/>
+              className="main-rating"
+              allAverageRatings={allAverageRatings}
+              numberOfReviews={allReviews.length}/>
             <Search
-            className="search"
-            searchSubmit={searchSubmit}
-            searchBarTextChange={searchBarTextChange}/>
+              className="search"
+              searchSubmit={searchSubmit}
+              searchBarTextChange={searchBarTextChange}
+            />
           </div>
           {bottomComponent}
           <ReactPaginate
