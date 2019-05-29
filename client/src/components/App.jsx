@@ -127,27 +127,27 @@ class App extends React.Component {
 
 
   render() {
+    const { backToAllReviews, searchSubmit, searchBarTextChange, handlePageClick } = this;
+    
     const {
-      isSearching, allAverageRatings, allReviews, currentReviews, currentSearchTerm,
+      isSearching, allAverageRatings, allReviews,
+      currentReviews, currentSearchTerm, pageCount
     } = this.state;
     
     let bottomComponent;
     
-    if (!isSearching) {
-      bottomComponent = 
+    // very unclean switch statement, what is the best practice?
+    !isSearching ? bottomComponent = 
         <div>
           <Ratings allAverageRatings={allAverageRatings}/>
           <ReviewsList currentReviews={currentReviews}/>
-          
-      </div>
-    } else {
+      </div> :
       bottomComponent = 
       <SearchDescription
         searchedReviews={currentReviews}
-        backToAllReviews={this.backToAllReviews}
+        backToAllReviews={backToAllReviews}
         currentSearchTerm={currentSearchTerm}
       />
-    }
 
       return (
         <div className="main-app">
@@ -158,20 +158,20 @@ class App extends React.Component {
             numberOfReviews={allReviews.length}/>
             <Search
             className="search"
-            searchSubmit={this.searchSubmit}
-            searchBarTextChange={this.searchBarTextChange}/>
+            searchSubmit={searchSubmit}
+            searchBarTextChange={searchBarTextChange}/>
           </div>
           {bottomComponent}
           <ReactPaginate
             className="pagination-component"
-            previousLabel={'previous'}
-            nextLabel={'next'}
+            previousLabel={'<'}
+            nextLabel={'>'}
             breakLabel={'...'}
             breakClassName={'break-me'}
-            pageCount={this.state.pageCount}
+            pageCount={pageCount}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
-            onPageChange={this.handlePageClick}
+            onPageChange={handlePageClick}
             containerClassName={'pagination'}
             subContainerClassName={'pages pagination'}
             activeClassName={'active'}
