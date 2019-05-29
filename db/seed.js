@@ -15,7 +15,7 @@ for (let i = 1; i <= 100; i += 1) {
   for (let j = 0; j < numberOfReviews; j += 1) {
     const review = {
       ID: j + 1,
-      name: faker.name.findName(),
+      name: faker.name.firstName(),
       date: faker.date.between('2015-01-01', '2018-04-08'),
       avatar: faker.image.avatar(),
       text: faker.lorem.paragraphs(),
