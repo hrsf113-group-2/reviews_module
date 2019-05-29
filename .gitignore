@@ -24,3 +24,5 @@ coverage
 build/
 dist/main.js
 
+#key 
+ReviewsMod.pem
