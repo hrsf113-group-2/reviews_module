@@ -109,10 +109,6 @@ class App extends React.Component {
   }
 
   handlePageClick(page) {
-    console.log('help: ', page)
-    // this gives the page we are on - 1, so we can use this to multiply how mahy items we want
-    // let's try to grab the right elements based on this
-    // page 0, 0-4, page 1, 5-9, page 2, 10-14, page 3, 15-19
     let currentPageMultiplier = page.selected;
     let currentPageReviews = [];
     let i = 5 * currentPageMultiplier;
@@ -121,7 +117,6 @@ class App extends React.Component {
       currentPageReviews.push(this.state.allReviews[i])
     }
     this.setState({currentPageReviews: currentPageReviews})
-    // console.log('current page reviews: ', currentPageReviews)
   }
 
 
@@ -129,7 +124,25 @@ class App extends React.Component {
     const {
       isSearching, allAverageRatings, allReviews, currentReviews, currentSearchTerm,
     } = this.state;
+    
+    let bottomComponent;
+    
     if (!isSearching) {
+      bottomComponent = 
+        <div>
+          <Ratings allAverageRatings={allAverageRatings}/>
+          <ReviewsList currentReviews={currentReviews}/>
+          
+      </div>
+    } else {
+      bottomComponent = 
+      <SearchDescription
+        searchedReviews={currentReviews}
+        backToAllReviews={this.backToAllReviews}
+        currentSearchTerm={currentSearchTerm}
+      />
+    }
+
       return (
         <div className="main-app">
           <div className="header">
@@ -142,8 +155,7 @@ class App extends React.Component {
             searchSubmit={this.searchSubmit}
             searchBarTextChange={this.searchBarTextChange}/>
           </div>
-          <Ratings allAverageRatings={allAverageRatings}/>
-          <ReviewsList currentReviews={currentReviews}/>
+          {bottomComponent}
           <ReactPaginate
             className="pagination-component"
             previousLabel={'previous'}
@@ -160,25 +172,6 @@ class App extends React.Component {
           />
         </div>
       );
-    }
-    return (
-      <div className="main-app">
-        <div className="header">
-          <MainRating
-            className="main-rating"
-            allAverageRatings={allAverageRatings}
-            numberOfReviews={allReviews.length}/>
-          <Search
-            className="search"
-            searchSubmit={this.searchSubmit}
-            searchBarTextChange={this.searchBarTextChange}/>
-        </div>
-        <SearchDescription
-          searchedReviews={currentReviews}
-          backToAllReviews={this.backToAllReviews}
-          currentSearchTerm={currentSearchTerm}/>
-      </div>
-    );
   }
 }
 
