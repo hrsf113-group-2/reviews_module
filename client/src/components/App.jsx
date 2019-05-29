@@ -121,7 +121,9 @@ class App extends React.Component {
     let i = 5 * currentPageMultiplier;
     let loopEnd = i + 4;
     for ( i; i <= loopEnd; i++ ) {
-      currentReviews.push(this.state.allReviews[i])
+      if (this.state.allReviews[i]) {
+        currentReviews.push(this.state.allReviews[i])
+      }
     }
     this.setState({ currentReviews })
   }
