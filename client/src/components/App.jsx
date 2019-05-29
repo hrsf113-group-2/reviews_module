@@ -73,8 +73,12 @@ class App extends React.Component {
   }
 
   backToAllReviews() {
+    let currentReviews = [];
+      for (let i = 0; i < 5; i += 1) {
+        currentReviews.push(this.state.allReviews[i])
+      }
     this.setState({
-      currentReviews: this.state.allReviews,
+      currentReviews,
       isSearching: false,
       currentSearchTerm: '',
     });
