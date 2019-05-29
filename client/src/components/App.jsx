@@ -21,6 +21,7 @@ class App extends React.Component {
       currentSearchTerm: '',
       allAverageRatings: {},
       isSearching: false,
+      pageCount: 0,
     };
     this.searchSubmit = this.searchSubmit.bind(this);
     this.searchBarTextChange = this.searchBarTextChange.bind(this);
@@ -37,17 +38,13 @@ class App extends React.Component {
       .then((location) => {
         // only first 5 reviews
         let allReviews = location.data.reviews;
+        let pageCount = Math.ceil(allReviews.length/5);
         let currentReviews = [];
         for (let i = 0; i < 5; i += 1) {
           currentReviews.push(allReviews[i])
         }
 
-        component.setState(
-          {
-            allReviews,
-            currentReviews,
-          },
-        );
+        component.setState({ allReviews, currentReviews, pageCount });
       })
       .then(() => component.storeAllAverageRatings());
   }
@@ -125,7 +122,7 @@ class App extends React.Component {
         currentReviews.push(this.state.allReviews[i])
       }
     }
-    this.setState({ currentReviews })
+    this.setState({ currentReviews });
   }
 
 
