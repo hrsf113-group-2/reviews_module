@@ -17,7 +17,7 @@
     "test": "jest --coverage --colors"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "css-loader": "^2.1.1",
